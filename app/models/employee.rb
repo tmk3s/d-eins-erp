@@ -10,4 +10,6 @@ class Employee < ApplicationRecord
   has_many :employee_salaries, dependent: :destroy
 
   enum :gender, [:male, :female], prefix: true
+
+  validates :code, uniqueness: { scope: :company_id }
 end

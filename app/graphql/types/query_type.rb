@@ -34,5 +34,10 @@ module Types
     def employee(id:)
       Employee.find(id)
     end
+
+    field :employees, [Types::EmployeeType], null: false
+    def employees
+      Employee.all
+    end
   end
 end

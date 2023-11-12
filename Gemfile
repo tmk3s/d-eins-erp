@@ -43,12 +43,11 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-
 end
 
 gem 'ridgepole' # schema https://github.com/ridgepole/ridgepole
 gem 'graphql' # graphql
-gem "graphiql-rails", group: :development
+# gem "graphiql-rails", group: :development => https://github.com/rmosolgo/graphiql-rails/issues/108 起動しない
 gem 'pry-rails', group: :development
 gem 'activerecord-import' # インポート
 gem 'roo', "~> 2.10.0" # excel読み込み

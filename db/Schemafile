@@ -165,7 +165,7 @@ create_table "payment_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci
   t.string "name", comment: "項目名", null: false
   t.integer "item_type", comment: "項目種別", null: false
   t.integer "setting_type", comment: "金額設定種別", null: false
-  t.string "formula", comment: "計算式", null: false
+  t.string "formula", comment: "計算式", null: true
   t.boolean "is_minus", comment: "マイナス項目フラグ", null: false
   t.boolean "is_delete", comment: "削除フラグ", null: false
   t.datetime "created_at", null: false
@@ -177,7 +177,7 @@ create_table "deduction_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_
   t.string "name", comment: "項目名", null: false
   t.integer "item_type", comment: "項目種別", null: false
   t.integer "setting_type", comment: "金額設定種別", null: false
-  t.string "formula", comment: "計算式"
+  t.string "formula", comment: "計算式", null: true
   t.boolean "is_minus", comment: "マイナス項目フラグ", null: false
   t.boolean "is_delete", comment: "削除フラグ", null: false
   t.datetime "created_at", null: false
@@ -262,8 +262,8 @@ create_table "employee_salary_payment_items", charset: "utf8mb4", collation: "ut
   t.integer "value", comment: "値", null: false
   t.integer "item_type", comment: "項目種別", null: false
   t.integer "setting_type", comment: "金額設定種別", null: false
-  t.string "formula", comment: "計算式"
-  t.string "calculation_process_file", comment: "計算過程のファイル"
+  t.string "formula", comment: "計算式", null: true
+  t.string "calculation_process_file", comment: "計算過程のファイル", null: true
   t.boolean "is_minus", comment: "マイナス項目フラグ", null: false
   t.boolean "is_delete", comment: "削除フラグ", null: false
   t.datetime "created_at", null: false
@@ -279,8 +279,8 @@ create_table "employee_salary_deduction_items", charset: "utf8mb4", collation: "
   t.integer "value", comment: "値", null: false
   t.integer "item_type", comment: "項目種別", null: false
   t.integer "setting_type", comment: "金額設定種別", null: false
-  t.string "formula", comment: "計算式"
-  t.string "calculation_process_file", comment: "計算過程のファイル"
+  t.string "formula", comment: "計算式", null: true
+  t.string "calculation_process_file", comment: "計算過程のファイル", null: true
   t.boolean "is_minus", comment: "マイナス項目フラグ", null: false
   t.boolean "is_delete", comment: "削除フラグ", null: false
   t.datetime "created_at", null: false
