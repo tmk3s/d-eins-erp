@@ -14,7 +14,7 @@ module Types
     field :calculation_process_file, String, null: true, description: '計算過程のファイル'
     field :is_minus, Boolean, null: false, description: 'マイナスフラグ'
     field :is_delete, Boolean, null: false, description: '削除フラグ'
-    field :created_at, ISO8601Date, null: false, description: '作成日'
-    field :updated_at, ISO8601Date, null: false, description: '更新日'
+    field :created_at, String, null: false, description: '作成日'
+    field :updated_at, String, null: false, description: '更新日'
   end
 end

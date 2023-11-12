@@ -8,7 +8,7 @@ module Types
     field :prefecture_id, ID, null: false, description: '都道府県ID'
     field :address, String, null: false, description: '住所'
     field :building, String, null: false, description: '建物名'
-    field :created_at, ISO8601Date, null: false, description: '作成日'
-    field :updated_at, ISO8601Date, null: false, description: '更新日'
+    field :created_at, String, null: false, description: '作成日'
+    field :updated_at, String, null: false, description: '更新日'
   end
 end

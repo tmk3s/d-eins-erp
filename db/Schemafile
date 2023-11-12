@@ -134,7 +134,7 @@ create_table "employee_banks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_c
   t.bigint "employee_id", comment: "従業員ID", null: false
   t.bigint "row_no", comment: "行No", null: false
   t.bigint "bank_id", comment: "銀行ID", null: false
-  t.bigint "bank_branche_id", comment: "銀行支店ID", null: false
+  t.bigint "bank_branch_id", comment: "銀行支店ID", null: false
   t.string "bank_number", comment: "口座番号", null: false
   t.datetime "created_at", null: false
   t.datetime "updated_at", null: false

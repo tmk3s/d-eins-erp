@@ -6,7 +6,7 @@ module Types
     field :name, String, null: false, description: '銀行名'
     field :name_ryaku, String, null: false, description: '銀行名略'
     field :name_kana, String, null: false, description: '銀行名カナ'
-    field :created_at, ISO8601Date, null: false, description: '作成日'
-    field :updated_at, ISO8601Date, null: false, description: '更新日'
+    field :created_at, String, null: false, description: '作成日'
+    field :updated_at, String, null: false, description: '更新日'
   end
 end

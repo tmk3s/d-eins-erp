@@ -159,7 +159,7 @@ namespace :master do
         Employee.insert_all(params)
     
         params = []
-        Employee.all.each do |i|
+        Employee.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_id: i.id,
@@ -175,7 +175,7 @@ namespace :master do
         EmployeeAddress.insert_all(params)
     
         params = []
-        Employee.all.each do |i|
+        Employee.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_id:i.id,
@@ -191,7 +191,7 @@ namespace :master do
     
     
         params = []
-        Employee.all.each do |i|
+        Employee.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_id:i.id,
@@ -239,7 +239,7 @@ namespace :master do
     
     
         params = []
-        Employee.all.each do |i|
+        Employee.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_id:i.id,
@@ -271,7 +271,7 @@ namespace :master do
         EmployeeJobCareer.insert_all(params)
     
         params = []
-        Employee.all.each do |i|
+        Employee.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_id:i.id,
@@ -283,7 +283,7 @@ namespace :master do
         EmployeePayrollGroup.insert_all(params)
     
         params = []
-        Employee.all.each do |i|
+        Employee.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_id:i.id,
@@ -335,7 +335,7 @@ namespace :master do
         EmployeeQualification.insert_all(params)
     
         params = []
-        Employee.all.each do |i|
+        Employee.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_id:i.id,
@@ -352,7 +352,7 @@ namespace :master do
         EmployeeSalary.insert_all(params)
     
         params = []
-        EmployeeSalary.all.each do |i|
+        EmployeeSalary.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_salary_id:i.id,
@@ -401,7 +401,7 @@ namespace :master do
         EmployeeSalaryAttendanceItem.insert_all(params)
     
         params = []
-        EmployeeSalary.all.each do |i|
+        EmployeeSalary.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_salary_id:i.id,
@@ -476,7 +476,7 @@ namespace :master do
         EmployeeSalaryDeductionItem.insert_all(params)
     
         params = []
-        EmployeeSalary.all.each do |i|
+        EmployeeSalary.where(company_id: company.id).each do |i|
           params << {
             company_id: company.id,
             employee_salary_id:i.id,

@@ -35,7 +35,7 @@ module Types
       Employee.find(id)
     end
 
-    field :employees, [Types::EmployeeType], null: false
+    field :employees, [EmployeeType], null: false
     def employees
       Employee.all
     end

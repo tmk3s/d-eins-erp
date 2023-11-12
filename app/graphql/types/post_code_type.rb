@@ -10,7 +10,7 @@ module Types
     field :prefecture_name_kana, String, null: true, description: '都道府県名(仮名)'
     field :city_name_kana, String, null: true, description: '市区町村(仮名)'
     field :town_area_name_kana, String, null: true, description: '町域名(仮名)'
-    field :created_at, ISO8601Date, null: false, description: '作成日'
-    field :updated_at, ISO8601Date, null: false, description: '更新日'
+    field :created_at, String, null: false, description: '作成日'
+    field :updated_at, String, null: false, description: '更新日'
   end
 end
