@@ -1,0 +1,356 @@
+# docker-compose exec app ridgepole -c config/database.yml -f db/Schemafile --apply
+
+create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.string "name", comment: "名前", null: false
+  t.string "post_code1", comment: "郵便番号1"
+  t.string "post_code2", comment: "郵便番号2"
+  t.bigint "prefecture_id", comment: "都道府県ID"
+  t.string "address", comment: "住所"
+  t.string "building", comment: "建物"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+end
+
+create_table "association_kenpo_rates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.date "start_on", comment: "開始日", null: false
+  t.bigint "prefecture_id", comment: "都道府県ID", null: false
+  t.integer "insurance_type", comment: "保険種別", null: false
+  t.decimal "employee_rate", precision: 8, scale: 5, comment: "従業員負担分の料率" , null: false
+  t.decimal "employer_rate", precision: 8, scale: 5, comment: "事業主負担分の料率", null: false
+  t.decimal "rate", precision: 8, scale: 5, comment: "全体の料率", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+# ↑https://pisuke-code.com/mysql-double-vs-decimal/ とりあえずdecimal(12,9)で定義しておく
+
+create_table "standard_monthly_remunerations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.date "start_on", comment: "開始日", null: false
+  t.integer "insurance_type", comment: "保険種別", null: false
+  t.integer "rank", comment: "等級", null: false
+  t.string "monthly_amount", comment: "月額", null: false
+  t.string "daily_amount", comment: "日額", null: true
+  t.string "monthly_remuneration_from", comment: "報酬月額(from)"
+  t.string "monthly_remuneration_to", comment: "報酬月額(to)"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "bank_branches", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "bank_id", comment: "銀行ID", null: false
+  t.string "code", comment: "コード", null: false
+  t.string "name", comment: "名前", null: false
+  t.string "name_kana", comment: "名前(カナ)", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "banks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.string "code", comment: "コード", null: false
+  t.string "name", comment: "名前", null: false
+  t.string "name_ryaku", comment: "名前(略)", null: false
+  t.string "name_kana", comment: "名前(カナ)", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employees", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.string "code", comment: "従業員番号"
+  t.string "last_name", comment: "姓", null: false
+  t.string "first_name", comment: "名", null: false
+  t.string "last_name_kana", comment: "姓(カナ)"
+  t.string "first_name_kana", comment: "名(カナ)"
+  t.integer "gender", default: 0, comment: "性別"
+  t.date "birthday", comment: "誕生日"
+  t.date "joined_on", comment: "入社日", null: false
+  t.date "retirement_on", comment: "退職日"
+  t.text "introduction", comment: "自己紹介"
+  t.string "image", comment: "画像"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_id", comment: "従業員ID", null: false
+  t.string "post_code1", comment: "郵便番号1"
+  t.string "post_code2", comment: "郵便番号2"
+  t.integer "prefecture_id", comment: "都道府県ID"
+  t.string "address", comment: "住所"
+  t.string "building", comment: "建物"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_personnel_changes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_id", comment: "従業員ID", null: false
+  t.date "start_on", comment: "開始日", null: false
+  t.bigint "office_id", comment: "事業所ID"
+  t.bigint "department_id", comment: "部署ID"
+  t.bigint "post_id", comment: "役職ID"
+  t.bigint "occupation_id", comment: "職種ID"
+  t.bigint "grade_id", comment: "グレード・等級ID"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_job_careers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_id", comment: "従業員ID", null: false
+  t.date "start_on", comment: "開始日", null: false
+  t.string "name", comment: "名前", null: false
+  t.text "detail", comment: "詳細"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_qualifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_id", comment: "従業員ID", null: false
+  t.date "acquisition_at", comment: "取得日", null: false
+  t.bigint "qualification_id", comment: "資格ID", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_families", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_id", comment: "従業員ID", null: false
+  t.bigint "row_no", comment: "行No", null: false
+  t.integer "relationship", comment: "続柄", null: false
+  t.string "last_name", comment: "姓", null: false
+  t.string "first_name", comment: "名", null: false
+  t.string "last_name_kana", comment: "姓(カナ)"
+  t.string "first_name_kana", comment: "名(カナ)"
+  t.integer "gender", default: 0, comment: "性別"
+  t.date "birthday", comment: "誕生日"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_banks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_id", comment: "従業員ID", null: false
+  t.bigint "row_no", comment: "行No", null: false
+  t.bigint "bank_id", comment: "銀行ID", null: false
+  t.bigint "bank_branche_id", comment: "銀行支店ID", null: false
+  t.string "bank_number", comment: "口座番号", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "offices", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.string "name", comment: "事業所名", null: false
+  t.string "post_code1", comment: "郵便番号1"
+  t.string "post_code2", comment: "郵便番号2"
+  t.integer "prefecture_id", comment: "都道府県ID"
+  t.string "address", comment: "住所"
+  t.string "building", comment: "建物"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "attendance_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.string "name", comment: "項目名", null: false
+  t.boolean "is_delete", comment: "削除フラグ", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "payment_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.string "name", comment: "項目名", null: false
+  t.integer "item_type", comment: "項目種別", null: false
+  t.integer "setting_type", comment: "金額設定種別", null: false
+  t.string "formula", comment: "計算式", null: false
+  t.boolean "is_minus", comment: "マイナス項目フラグ", null: false
+  t.boolean "is_delete", comment: "削除フラグ", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "deduction_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.string "name", comment: "項目名", null: false
+  t.integer "item_type", comment: "項目種別", null: false
+  t.integer "setting_type", comment: "金額設定種別", null: false
+  t.string "formula", comment: "計算式"
+  t.boolean "is_minus", comment: "マイナス項目フラグ", null: false
+  t.boolean "is_delete", comment: "削除フラグ", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "payroll_groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.string "name", comment: "グループ名", null: false
+  t.integer "close_day", comment: "締日", null: false
+  t.integer "payment_day", comment: "支給日", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "payroll_group_attendance_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "payroll_group_id", comment: "給与グループID", null: false
+  t.integer "row_no", comment: "行No", null: false
+  t.bigint "attendance_item_id", comment: "勤怠項目ID", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "payroll_group_payment_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "payroll_group_id", comment: "給与グループID", null: false
+  t.integer "row_no", comment: "行No", null: false
+  t.bigint "payment_item_id", comment: "支給項目ID", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "payroll_group_deduction_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "payroll_group_id", comment: "給与グループID", null: false
+  t.integer "row_no", comment: "行No", null: false
+  t.bigint "deduction_item_id", comment: "控除項目ID", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_payroll_groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_id", comment: "従業員ID", null: false
+  t.bigint "payroll_group_id", comment: "給与グループID", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_salaries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_id", comment: "従業員ID", null: false
+  t.bigint "payroll_group_id", comment: "給与グループID", null: false
+  t.date "payment_date", comment: "支給日", null: false
+  t.integer "total_payment", comment: "支給合計", null: false
+  t.integer "total_deduction", comment: "控除合計", null: false
+  t.integer "deductible_payment_amount", comment: "差引支給額", null: false
+  t.boolean "is_confirm", comment: "確定フラグ", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_salary_attendance_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_salary_id", comment: "給与情報ID", null: false
+  t.bigint "attendance_item_id", comment: "勤怠項目ID", null: false
+  t.integer "row_no", comment: "行No", null: false
+  t.string "name", comment: "項目名", null: false
+  t.string "value", comment: "値", null: false
+  t.boolean "is_delete", comment: "削除フラグ", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_salary_payment_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_salary_id", comment: "給与情報ID", null: false
+  t.bigint "payment_item_id", comment: "支給項目ID", null: false
+  t.integer "row_no", comment: "行No", null: false
+  t.string "name", comment: "項目名", null: false
+  t.integer "value", comment: "値", null: false
+  t.integer "item_type", comment: "項目種別", null: false
+  t.integer "setting_type", comment: "金額設定種別", null: false
+  t.string "formula", comment: "計算式"
+  t.string "calculation_process_file", comment: "計算過程のファイル"
+  t.boolean "is_minus", comment: "マイナス項目フラグ", null: false
+  t.boolean "is_delete", comment: "削除フラグ", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "employee_salary_deduction_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.bigint "employee_salary_id", comment: "給与情報ID", null: false
+  t.bigint "deduction_item_id", comment: "控除項目ID", null: false
+  t.integer "row_no", comment: "行No", null: false
+  t.string "name", comment: "項目名", null: false
+  t.integer "value", comment: "値", null: false
+  t.integer "item_type", comment: "項目種別", null: false
+  t.integer "setting_type", comment: "金額設定種別", null: false
+  t.string "formula", comment: "計算式"
+  t.string "calculation_process_file", comment: "計算過程のファイル"
+  t.boolean "is_minus", comment: "マイナス項目フラグ", null: false
+  t.boolean "is_delete", comment: "削除フラグ", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "post_codes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.string "code", comment: "団体コード"
+  t.string "post_code", comment: "郵便番号"
+  t.string "prefecture_name", comment: "都道府県名"
+  t.string "city_name", comment: "市区町村"
+  t.string "town_area_name", comment: "町域名"
+  t.string "prefecture_name_kana", comment: "都道府県名(仮名)"
+  t.string "city_name_kana", comment: "市区町村(仮名)"
+  t.text "town_area_name_kana", comment: "町域名(仮名)"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.date "start_on", comment: "開始日", null: false
+  t.string "name", comment: "部署名", null: false
+  t.bigint "parent_id", comment: "親の部署"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "occupations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.date "start_on", comment: "開始日", null: false
+  t.string "name", comment: "職種名", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.date "start_on", comment: "開始日", null: false
+  t.string "name", comment: "役職名", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "grades", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.string "name", comment: "グレード・等級名", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "prefectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.string "name", comment: "名称", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+create_table "qualifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  t.bigint "company_id", comment: "会社ID", null: false
+  t.string "name", comment: "名称", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+add_index :banks, :code, unique: true
+add_index :bank_branches, :bank_id
+add_index :bank_branches, :code, unique: true
+add_index :prefectures, :name, unique: true
+add_index :post_codes, :post_code, unique: true
+add_index :association_kenpo_rates, :start_on
+add_index :association_kenpo_rates, [:start_on, :prefecture_id, :insurance_type], unique: true, name: 'association_kenpo_rates_unique_key1'
+add_index :standard_monthly_remunerations, :start_on
+add_index :standard_monthly_remunerations, [:start_on, :insurance_type, :rank], unique: true, name: 'standard_monthly_remunerations_unique_key1'

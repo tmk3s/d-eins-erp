@@ -1,0 +1,44 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'pass'
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+  app:
+    build: .
+    command: /bin/sh -c "rm -f tmp/pids/server.pid && bin/rails server -p 3000 -b '0.0.0.0'"
+    environment:
+      RAILS_ENV: development
+      EDITOR: vim
+    volumes:
+      - .:/app
+      - bundle_install:/usr/local/bundle
+    links:
+      - db
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+  minio:
+    image: minio/minio:latest
+    ports:
+      - 9000:9000
+    volumes:
+      - minio:/data
+    command: server /data
+    environment:
+      MINIO_ACCESS_KEY: minio_access_key
+      MINIO_SECRET_KEY: minio_secret_key
+volumes:
+  mysql-data:
+    driver: local
+  bundle_install:
+    driver: local
+  minio:
+    driver: local
