@@ -88,7 +88,7 @@ RUN bundle install
 
 COPY . $APP_ROOT
  
-EXPOSE 3000
+EXPOSE 8080
  
 # Start the main process.
 CMD ["rails", "server", "-b", "0.0.0.0"]
