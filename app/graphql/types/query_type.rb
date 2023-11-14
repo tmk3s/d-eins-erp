@@ -28,6 +28,13 @@ module Types
       "Hello World!"
     end
 
+    field :company, CompanyType, "Find a employee by ID" do
+      argument :id, ID
+    end
+    def company(id:)
+      Company.all.first
+    end
+
     field :employee, EmployeeType, "Find a employee by ID" do
       argument :id, ID
     end

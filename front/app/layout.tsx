@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import WithApollo from "@/components/WithApollo";
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -13,7 +14,7 @@ const HederComponent = () => {
   return (
     <div className='header h-14 bg-teal-300 border-black sticky top-0'>
       <h1 className='text-slate-50 font-bold text-3xl pt-2 pl-2'>
-        @SmartDemo
+        <a href='/'>@SmartDemo</a>
       </h1>
     </div>
   )
@@ -27,11 +28,13 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
-        <HederComponent />
-        <a href='/setting'>設定</a>
-        <div>
-          {children}
-        </div>
+        <WithApollo>
+          <HederComponent />
+          <a href='/setting'>設定</a>
+          <div>
+            {children}
+          </div>
+        </WithApollo>
       </body>
     </html>
   )
