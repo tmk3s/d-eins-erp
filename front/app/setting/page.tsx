@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import Layout from '@/components/setting/Layout';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, useMutation, gql } from '@apollo/client';
 import { useForm, SubmitHandler } from "react-hook-form";
 
 const GET_COMPANY = gql`
   query GetCompany {
     company(id: 11980){
+      id
       name
       postCode1
       postCode2
@@ -20,7 +21,17 @@ const GET_COMPANY = gql`
   }
 `;
 
+const UPDATE_COMPANY = gql`
+  # Increments a back-end counter and gets its resulting value
+  mutation updateComapny($UpdateCompanyInput: UpdateCompanyInput!){
+  updateComapny(input: $UpdateCompanyInput) {
+    errors
+  }
+}
+`;
+
 type Company = {
+  id: string,
   name: string,
   postCode1: string,
   postCode2: string,
@@ -67,7 +78,7 @@ const Show = ({company}: {company: Company}): React.ReactNode => {
   )
 }
 
-const Edit = ({company}: {company: Company}): React.ReactNode => {
+const Edit = ({company, callBack}: {company: Company, callBack: ()=> void}): React.ReactNode => {
   const {
     register,
     handleSubmit,
@@ -85,11 +96,26 @@ const Edit = ({company}: {company: Company}): React.ReactNode => {
       updatedAt: company.updatedAt,
     }
   });
+  const [mutateFunction, { data, loading, error }] = useMutation(UPDATE_COMPANY, { onCompleted() { callBack(); }});
 
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        alert(JSON.stringify(data));
+        mutateFunction({
+          variables: {
+            UpdateCompanyInput: {
+              id: company.id,
+              name: data.name,
+              postCode1: data.postCode1,
+              postCode2: data.postCode2,
+              prefectureId: data.prefectureName,
+              address: data.address,
+              building: data.building,
+            }
+          }
+        })
+        // alert(JSON.stringify(data));
+        // alert(JSON.stringify(company.id));
       })}
     >
       <div className='lg:grid lg:grid-cols-2 lg:gap-4'>
@@ -106,9 +132,9 @@ const Edit = ({company}: {company: Company}): React.ReactNode => {
         <div className='p-5'>
           <p className='text-gray-500 text-s'>都道府県</p>
           <select className='w-full h-10 outline outline-1 outline-gray-300' {...register("prefectureName")}>
-            <option value="東京都">東京都</option>
-            <option value="male">北海道</option>
-            <option value="other">埼玉県</option>
+            <option value="13">東京都</option>
+            <option value="1">北海道</option>
+            <option value="11">埼玉県</option>
           </select>
         </div>
         <br/>
@@ -143,7 +169,7 @@ export default function Home() {
 	  console.log(1)
   },[])
   const [edit, setEdit] = useState(false);
-  const { loading, error, data } = useQuery(GET_COMPANY,  { fetchPolicy: 'no-cache' });
+  const { loading, error, refetch, data } = useQuery(GET_COMPANY,  { fetchPolicy: 'no-cache' });
 
   return (
     <main>
@@ -156,12 +182,16 @@ export default function Home() {
             { edit ? '戻る' : '編集'}
           </button>
           <div className='mt-5 w-full outline rounded-md outline-1 outline-gray-300 bg-slate-50 shadow-md'>
-            { !data ? (
+            { loading ? (
               <p>読み込み中です・・</p>
             ) : (
               <>
                 { edit ? (
-                  <Edit company={data.company}/>
+                  <Edit company={data.company} callBack={() => {
+                    setEdit(!edit);
+                    refetch();
+                  }
+                  }/>
                 ) : (
                   <Show company={data.company}/>
                 )}

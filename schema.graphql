@@ -1,0 +1,765 @@
+"""
+会社マスタ
+"""
+type Company {
+  """
+  住所
+  """
+  address: String!
+
+  """
+  建物名
+  """
+  building: String!
+
+  """
+  作成日
+  """
+  createdAt: String!
+  id: ID!
+
+  """
+  名前
+  """
+  name: String!
+
+  """
+  郵便番号1
+  """
+  postCode1: String!
+
+  """
+  郵便番号2
+  """
+  postCode2: String!
+
+  """
+  都道府県ID
+  """
+  prefectureId: ID!
+
+  """
+  都道府県
+  """
+  prefectureName: String!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+}
+
+"""
+従業員
+"""
+type Employee {
+  """
+  誕生日
+  """
+  birthday: String
+
+  """
+  従業員番号
+  """
+  code: String!
+
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+  employeeAddress: EmployeeAddress
+  employeeBanks: [EmployeeBank!]
+  employeeFamilies: [EmployeeFamily!]
+  employeePayrollGroups: [EmployeePayrollGroup!]
+  employeeQualifications: [EmployeeQualification!]
+  employeeSalaries: [EmployeeSalary!]
+
+  """
+  名
+  """
+  firstName: String!
+
+  """
+  名(カナ)
+  """
+  firstNameKana: String
+
+  """
+  性別
+  """
+  gender: Gender
+  id: ID!
+
+  """
+  画像
+  """
+  image: String
+
+  """
+  自己紹介
+  """
+  introduction: String
+
+  """
+  入社日
+  """
+  joinedOn: String
+
+  """
+  姓
+  """
+  lastName: String!
+
+  """
+  姓(カナ)
+  """
+  lastNameKana: String
+
+  """
+  退社日
+  """
+  retirementOn: String
+
+  """
+  更新日
+  """
+  updatedAt: String!
+}
+
+"""
+従業員住所
+"""
+type EmployeeAddress {
+  """
+  住所
+  """
+  address: String!
+
+  """
+  建物名
+  """
+  building: String!
+
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+  id: ID!
+
+  """
+  郵便番号1
+  """
+  postCode1: String!
+
+  """
+  郵便番号2
+  """
+  postCode2: String!
+
+  """
+  都道府県ID
+  """
+  prefectureId: ID!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+}
+
+"""
+従業員口座
+"""
+type EmployeeBank {
+  """
+  銀行支店ID
+  """
+  bankBranchId: ID!
+
+  """
+  銀行ID
+  """
+  bankId: ID!
+
+  """
+  口座番号
+  """
+  bankNumber: String!
+
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+  id: ID!
+
+  """
+  行No
+  """
+  rowNo: Int!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+}
+
+"""
+従業員家族
+"""
+type EmployeeFamily {
+  """
+  誕生日
+  """
+  birthday: String
+
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+
+  """
+  名
+  """
+  firstName: String!
+
+  """
+  名(カナ)
+  """
+  firstNameKana: String!
+
+  """
+  性別
+  """
+  gender: [Gender!]
+  id: ID!
+
+  """
+  姓
+  """
+  lastName: String!
+
+  """
+  姓(カナ)
+  """
+  lastNameKana: String!
+
+  """
+  続柄
+  """
+  relationship: [Relationship!]!
+
+  """
+  行No
+  """
+  rowNo: Int!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+}
+
+"""
+従業員の給与グループ
+"""
+type EmployeePayrollGroup {
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+  id: ID!
+
+  """
+  給与グループID
+  """
+  payrollGroupId: ID!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+}
+
+"""
+従業員資格情報
+"""
+type EmployeeQualification {
+  """
+  取得日
+  """
+  acquisitionAt: String!
+
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+  id: ID!
+
+  """
+  資格ID
+  """
+  qualificationId: ID!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+}
+
+"""
+従業員給与
+"""
+type EmployeeSalary {
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  差引支給額
+  """
+  deductiblePaymentAmount: Int!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+  employeeSalaryAttendanceItems: [EmployeeSalaryAttendanceItem!]
+  employeeSalaryDeductionItems: [EmployeeSalaryDeductionItem!]
+  employeeSalaryPaymentItems: [EmployeeSalaryPaymentItem!]
+  id: ID!
+
+  """
+  確定フラグ
+  """
+  isConfirm: Boolean!
+
+  """
+  支給日
+  """
+  paymentDate: String!
+
+  """
+  給与グループID
+  """
+  payrollGroupId: ID!
+
+  """
+  控除合計
+  """
+  totalDeduction: Int!
+
+  """
+  支給合計
+  """
+  totalPayment: Int!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+}
+
+"""
+従業員給与の勤怠項目
+"""
+type EmployeeSalaryAttendanceItem {
+  """
+  勤怠項目ID
+  """
+  attendanceItemId: ID!
+
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+  id: ID!
+
+  """
+  削除フラグ
+  """
+  isDelete: Boolean!
+
+  """
+  項目名
+  """
+  name: String!
+
+  """
+  行No
+  """
+  rowNo: Int!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+
+  """
+  値
+  """
+  value: String!
+}
+
+"""
+従業員給与の控除項目
+"""
+type EmployeeSalaryDeductionItem {
+  """
+  計算過程のファイル
+  """
+  calculationProcessFile: String
+
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  控除項目ID
+  """
+  deductionItemId: ID!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+
+  """
+  計算式
+  """
+  formula: String
+  id: ID!
+
+  """
+  削除フラグ
+  """
+  isDelete: Boolean!
+
+  """
+  マイナスフラグ
+  """
+  isMinus: Boolean!
+
+  """
+  項目種別
+  """
+  itemType: [ItemType!]!
+
+  """
+  項目名
+  """
+  name: String!
+
+  """
+  行No
+  """
+  rowNo: Int!
+
+  """
+  金額設定種別
+  """
+  settingType: [ItemType!]!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+
+  """
+  値
+  """
+  value: String!
+}
+
+"""
+従業員給与の支給項目
+"""
+type EmployeeSalaryPaymentItem {
+  """
+  計算過程のファイル
+  """
+  calculationProcessFile: String
+
+  """
+  会社ID
+  """
+  companyId: ID!
+
+  """
+  作成日
+  """
+  createdAt: String!
+
+  """
+  従業員ID
+  """
+  employeeId: ID!
+
+  """
+  計算式
+  """
+  formula: String
+  id: ID!
+
+  """
+  削除フラグ
+  """
+  isDelete: Boolean!
+
+  """
+  マイナスフラグ
+  """
+  isMinus: Boolean!
+
+  """
+  項目種別
+  """
+  itemType: [ItemType!]!
+
+  """
+  項目名
+  """
+  name: String!
+
+  """
+  支給項目ID
+  """
+  paymentItemId: ID!
+
+  """
+  行No
+  """
+  rowNo: Int!
+
+  """
+  金額設定種別
+  """
+  settingType: [ItemType!]!
+
+  """
+  更新日
+  """
+  updatedAt: String!
+
+  """
+  値
+  """
+  value: String!
+}
+
+enum Gender {
+  """
+  女
+  """
+  female
+
+  """
+  男
+  """
+  male
+}
+
+enum ItemType {
+  """
+  子供手当
+  """
+  child
+
+  """
+  カスタマイズ
+  """
+  customize
+
+  """
+  健康保険
+  """
+  health
+
+  """
+  介護保険
+  """
+  nursing
+
+  """
+  厚生年金
+  """
+  pension
+}
+
+type Mutation {
+  """
+  An example field added by the generator
+  """
+  testField: String!
+  updateComapny(
+    """
+    Parameters for UpdateCompany
+    """
+    input: UpdateCompanyInput!
+  ): UpdateCompanyPayload
+}
+
+type Query {
+  """
+  Find a employee by ID
+  """
+  company(id: ID!): Company
+
+  """
+  Find a employee by ID
+  """
+  employee(id: ID!): Employee
+  employees: [Employee!]!
+
+  """
+  An example field added by the generator
+  """
+  testField: String!
+}
+
+enum Relationship {
+  """
+  祖父
+  """
+  grandfather
+
+  """
+  祖母
+  """
+  grandmother
+
+  """
+  夫
+  """
+  husband
+
+  """
+  兄
+  """
+  older_brother
+
+  """
+  姉
+  """
+  sister
+
+  """
+  妻
+  """
+  wife
+
+  """
+  弟
+  """
+  younger_brother
+
+  """
+  妹
+  """
+  younger_sister
+}
+
+"""
+Autogenerated input type of UpdateCompany
+"""
+input UpdateCompanyInput {
+  address: String!
+  building: String!
+
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+  id: ID!
+  name: String!
+  postCode1: String!
+  postCode2: String!
+  prefectureId: ID!
+}
+
+"""
+Autogenerated return type of UpdateCompany.
+"""
+type UpdateCompanyPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+  errors: [String!]!
+}
