@@ -52,3 +52,4 @@ gem 'pry-rails', group: :development
 gem 'activerecord-import' # インポート
 gem 'roo', "~> 2.10.0" # excel読み込み
 gem 'roo-xls' # rooで使用するので必要
+gem 'devise_token_auth', :git => 'https://github.com/single-stop-tony/devise_token_auth' # トークン認証
