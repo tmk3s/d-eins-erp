@@ -7,6 +7,14 @@ const rewrites = process.env.NODE_ENV === 'development' ? [
     source: '/graphql',
     destination: 'http://0.0.0.0:8080/graphql',
   },
+  {
+    source: '/auth',
+    destination: 'http://0.0.0.0:8080/auth',
+  },
+  {
+    source: '/auth/sign_in',
+    destination: 'http://0.0.0.0:8080/auth/sign_in',
+  },
 ] : [];
 
 

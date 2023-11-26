@@ -182,7 +182,7 @@ export default function Home() {
             { edit ? '戻る' : '編集'}
           </button>
           <div className='mt-5 w-full outline rounded-md outline-1 outline-gray-300 bg-slate-50 shadow-md'>
-            { loading ? (
+            { loading || !data ? (
               <p>読み込み中です・・</p>
             ) : (
               <>
