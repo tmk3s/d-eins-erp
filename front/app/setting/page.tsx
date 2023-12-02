@@ -1,9 +1,19 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Layout from '@/components/setting/Layout';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { useForm, SubmitHandler } from "react-hook-form";
+import Layout from '@/components/setting/Layout';
+import Text from '@/components/common/Text';
+import Input from '@/components/common/Input';
+import Label from '@/components/common/Label';
+import Select from '@/components/common/Select';
+import PostCode from '@/components/common/PostCode';
+import TextBox from '@/components/common/TextBox';
+import ShowItem from '@/components/common/ShowItem';
+import SubmitButton from '@/components/common/SubmitButton';
+
+
 
 const GET_COMPANY = gql`
   query GetCompany {
@@ -12,11 +22,16 @@ const GET_COMPANY = gql`
       name
       postCode1
       postCode2
+      prefectureId
       prefectureName
       address
       building
       createdAt
       updatedAt
+    }
+    prefectures{
+      id
+      name
     }
   }
 `;
@@ -35,6 +50,7 @@ type Company = {
   name: string,
   postCode1: string,
   postCode2: string,
+  prefectureId: string,
   prefectureName: string,
   address: string,
   building: string,
@@ -42,43 +58,27 @@ type Company = {
   updatedAt: string
 };
 
+type Prefacture = {
+  id: string,
+  name: string
+};
+
 const Show = ({company}: {company: Company}): React.ReactNode => {
   return (
     <div className='lg:grid lg:grid-cols-2 lg:gap-4'>
-      <div className='p-5'>
-        <label className='text-gray-500 text-s'>社名</label>
-        <p>{company.name}</p>
-      </div>
-      <div className='p-5'>
-        <p className='text-gray-500 text-s'>郵便番号</p>
-        <p>{company.postCode1}-{company.postCode2}</p>
-      </div>
-      <div className='p-5'>
-        <p className='text-gray-500 text-s'>都道府県</p>
-        <p>{company.prefectureName}</p>
-      </div>
+      <ShowItem label='社名' value={company.name}/>
+      <ShowItem label='郵便番号' value={`${company.postCode1}-${company.postCode2}`}/>
+      <ShowItem label='都道府県' value={company.prefectureName}/>
       <br/>
-      <div className='p-5'>
-        <p className='text-gray-500 text-s'>住所1</p>
-        <p className='break-words'>{company.address}</p>
-      </div>
-      <div className='p-5'>
-        <p className='text-gray-500 text-s'>住所2</p>
-        <p className='break-words'>{company.building}</p>
-      </div>
-      <div className='p-5'>
-        <p className='text-gray-500 text-s'>作成日</p>
-        <p>{company.createdAt}</p>
-      </div>
-      <div className='p-5'>
-        <p className='text-gray-500 text-s'>更新日</p>
-        <p>{company.updatedAt}</p>
-      </div>
+      <ShowItem label='丁目・番地' value={company.address}/>
+      <ShowItem label='建物名' value={company.building}/>
+      <ShowItem label='作成日' value={company.createdAt}/>
+      <ShowItem label='更新日' value={company.updatedAt}/>
     </div>
   )
 }
 
-const Edit = ({company, callBack}: {company: Company, callBack: ()=> void}): React.ReactNode => {
+const Edit = ({company, prefectures, callBack}: {company: Company, prefectures: Prefacture[], callBack: ()=> void}): React.ReactNode => {
   const {
     register,
     handleSubmit,
@@ -89,7 +89,7 @@ const Edit = ({company, callBack}: {company: Company, callBack: ()=> void}): Rea
       name: company.name,
       postCode1: company.postCode1,
       postCode2: company.postCode2,
-      prefectureName: company.prefectureName,
+      prefectureId: company.prefectureId,
       address: company.address,
       building: company.building,
       createdAt: company.createdAt,
@@ -108,7 +108,7 @@ const Edit = ({company, callBack}: {company: Company, callBack: ()=> void}): Rea
               name: data.name,
               postCode1: data.postCode1,
               postCode2: data.postCode2,
-              prefectureId: data.prefectureName,
+              prefectureId: data.prefectureId,
               address: data.address,
               building: data.building,
             }
@@ -119,47 +119,16 @@ const Edit = ({company, callBack}: {company: Company, callBack: ()=> void}): Rea
       })}
     >
       <div className='lg:grid lg:grid-cols-2 lg:gap-4'>
-        <div className='p-5'>
-          <p className='text-gray-500 text-s'>社名</p>
-          <input className='w-full h-10 outline outline-1 outline-gray-300' {...register("name")} defaultValue='AAA' />
-        </div>
-        <div className='p-5'>
-          <p className='text-gray-500 text-s'>郵便番号</p>
-          <input className='w-10 h-10 outline outline-1 outline-gray-300' {...register("postCode1")} defaultValue={company?.postCode1} />
-          -
-          <input className='w-12 h-10 outline outline-1 outline-gray-300' {...register("postCode2")} defaultValue={company?.postCode2} />
-        </div>
-        <div className='p-5'>
-          <p className='text-gray-500 text-s'>都道府県</p>
-          <select className='w-full h-10 outline outline-1 outline-gray-300' {...register("prefectureName")}>
-            <option value="13">東京都</option>
-            <option value="1">北海道</option>
-            <option value="11">埼玉県</option>
-          </select>
-        </div>
+        <Text label='社名' {...register("name")}/>
+        <PostCode label='郵便番号' register={register}/>
+        <Select label='都道府県' selectItems={prefectures} {...register("prefectureId")}/>
         <br/>
-        <div className='p-5'>
-          <p className='text-gray-500 text-s'>住所1</p>
-          <textarea className='w-full h-20 outline outline-1 outline-gray-300' {...register("address")} defaultValue={company?.address} />
-        </div>
-        <div className='p-5'>
-          <p className='text-gray-500 text-s'>住所2</p>
-          <textarea className='w-full h-20 outline outline-1 outline-gray-300' {...register("building")} defaultValue={company?.building} />
-        </div>
-        <div className='p-5'>
-          <p className='text-gray-500 text-s'>作成日</p>
-          <p>{company?.createdAt}</p>
-        </div>
-        <div className='p-5'>
-          <p className='text-gray-500 text-s'>更新日</p>
-          <p>{company?.updatedAt}</p>
-        </div>
+        <TextBox label='丁目・番地'  {...register("address")}/>
+        <TextBox label='建物名'  {...register("building")}/>
+        <ShowItem label='作成日' value={company?.createdAt}/>
+        <ShowItem label='更新日' value={company?.updatedAt}/>
       </div>
-      <div className='flex justify-center'>
-        <button className="mt-5 mb-5 w-20 h-10 outline rounded-md outline-1 text-white outline-gray-300 bg-blue-500 hover:bg-blue-400 shadow-md" type="submit">
-          保存
-        </button>
-      </div>
+      <SubmitButton label='保存'/>
     </form>
   )
 }
@@ -170,7 +139,6 @@ export default function Home() {
   },[])
   const [edit, setEdit] = useState(false);
   const { loading, error, refetch, data } = useQuery(GET_COMPANY,  { fetchPolicy: 'no-cache' });
-
   return (
     <main>
       <Layout>
@@ -187,7 +155,7 @@ export default function Home() {
             ) : (
               <>
                 { edit ? (
-                  <Edit company={data.company} callBack={() => {
+                  <Edit company={data.company} prefectures={data.prefectures} callBack={() => {
                     setEdit(!edit);
                     refetch();
                   }

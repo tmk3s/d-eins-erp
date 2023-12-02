@@ -46,5 +46,22 @@ module Types
     def employees
       Employee.all
     end
+
+    field :prefectures, [PrefectureType], null: false
+    def prefectures
+      Prefecture.all
+    end
+
+    field :post_codes, [PostCodeType], null: false
+    def post_codes
+      PostCode.all
+    end
+
+    field :post_code, PostCodeType, null: false do
+      argument :post_code, String
+    end
+    def post_code(post_code:)
+      PostCode.find_by(post_code)
+    end
   end
 end
