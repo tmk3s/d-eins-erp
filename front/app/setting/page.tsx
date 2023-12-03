@@ -6,14 +6,12 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Layout from '@/components/setting/Layout';
 import Text from '@/components/common/Text';
 import Input from '@/components/common/Input';
-import Label from '@/components/common/Label';
+import ApiError from '@/components/common/ApiError';
 import Select from '@/components/common/Select';
 import PostCode from '@/components/common/PostCode';
 import TextBox from '@/components/common/TextBox';
 import ShowItem from '@/components/common/ShowItem';
 import SubmitButton from '@/components/common/SubmitButton';
-
-
 
 const GET_COMPANY = gql`
   query GetCompany {
@@ -96,8 +94,14 @@ const Edit = ({company, prefectures, callBack}: {company: Company, prefectures: 
       updatedAt: company.updatedAt,
     }
   });
-  const [mutateFunction, { data, loading, error }] = useMutation(UPDATE_COMPANY, { onCompleted() { callBack(); }});
-
+  // 更新に失敗(バリデーションエラー)してもonCompletedが実行されている
+  // クエリそのもの(定義ミスとか)なら実行されないのでerorrsに入る正常終了として考える
+  const [mutateFunction, { data, loading, error }] = useMutation(UPDATE_COMPANY, { 
+    onCompleted(data) { 
+      if (data.updateComapny.errors.length != 0) {return}
+      callBack();
+    }
+  });
   return (
     <form
       onSubmit={handleSubmit((data) => {
@@ -118,17 +122,45 @@ const Edit = ({company, prefectures, callBack}: {company: Company, prefectures: 
         // alert(JSON.stringify(company.id));
       })}
     >
-      <div className='lg:grid lg:grid-cols-2 lg:gap-4'>
-        <Text label='社名' {...register("name")}/>
-        <PostCode label='郵便番号' register={register}/>
-        <Select label='都道府県' selectItems={prefectures} {...register("prefectureId")}/>
-        <br/>
-        <TextBox label='丁目・番地'  {...register("address")}/>
-        <TextBox label='建物名'  {...register("building")}/>
-        <ShowItem label='作成日' value={company?.createdAt}/>
-        <ShowItem label='更新日' value={company?.updatedAt}/>
-      </div>
-      <SubmitButton label='保存'/>
+      <>
+        <ApiError errors={data?.updateComapny?.errors}/>
+        {/* https://react-hook-form.com/docs/useform/register */}
+        <div className='lg:grid lg:grid-cols-2 lg:gap-4'>
+          <Text
+            label='社名'
+            error={errors.name}
+            required
+            {...register("name",
+              { 
+                required: '必須です',
+                maxLength: { value: 50, message: '上限50文字です' }
+              })}
+          />
+          <PostCode label='郵便番号' required errors={errors} register={register}/>
+          <Select label='都道府県' selectItems={prefectures} {...register("prefectureId")}/>
+          <br/>
+          <TextBox
+            label='丁目・番地'
+            error={errors.address}
+            {...register("address",
+            { 
+              maxLength: { value: 200, message: '上限200文字です' }
+            })}
+          />
+          <TextBox
+            label='建物名'
+            error={errors.building}
+            {...register("building",
+            { 
+              maxLength: { value: 200, message: '上限200文字です' }
+            })}
+          />
+          <ShowItem label='作成日' value={company?.createdAt}/>
+          <ShowItem label='更新日' value={company?.updatedAt}/>
+        </div>
+        <SubmitButton label='保存'/>
+      </>
+      
     </form>
   )
 }
@@ -146,27 +178,27 @@ export default function Home() {
           <h1 className='text-3xl font-bold'>会社情報</h1>
           <p className='mt-5'>会社の基本情報の確認や編集ができます。</p>
           <h2 className='text-2xl mt-5'>基本情報</h2>
-          <button className="mt-5 w-20 h-10 outline rounded-md outline-1 outline-gray-300 bg-slate-50 hover:bg-gray-100 shadow-md" type="button" onClick={() => { setEdit(!edit) }}>
-            { edit ? '戻る' : '編集'}
-          </button>
-          <div className='mt-5 w-full outline rounded-md outline-1 outline-gray-300 bg-slate-50 shadow-md'>
-            { loading || !data ? (
+          { loading || !data ? (
               <p>読み込み中です・・</p>
             ) : (
               <>
-                { edit ? (
-                  <Edit company={data.company} prefectures={data.prefectures} callBack={() => {
-                    setEdit(!edit);
-                    refetch();
-                  }
-                  }/>
-                ) : (
-                  <Show company={data.company}/>
-                )}
+                <button className="mt-5 w-20 h-10 outline rounded-md outline-1 outline-gray-300 bg-slate-50 hover:bg-gray-100 shadow-md" type="button" onClick={() => { setEdit(!edit) }}>
+                  { edit ? '戻る' : '編集'}
+                </button>
+                <div className='mt-5 w-full outline rounded-md outline-1 outline-gray-300 bg-slate-50 shadow-md'>
+                  { edit ? (
+                    <Edit company={data.company} prefectures={data.prefectures} callBack={() => {
+                      setEdit(!edit);
+                      refetch();
+                    }
+                    }/>
+                    ) : (
+                    <Show company={data.company}/>
+                  )}
+                </div>
               </>
             )
           }
-          </div>
         </>
       </Layout>
     </main>  
