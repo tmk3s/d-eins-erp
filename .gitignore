@@ -34,3 +34,6 @@
 
 # graphqlのdoc
 /.doc/node_modules
+
+# gem_rbs_collection
+/.gem_rbs_collection

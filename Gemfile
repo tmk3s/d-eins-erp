@@ -43,6 +43,10 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'rbs_rails', require: false
+  gem 'orthoses', require: false
+  gem 'orthoses-rails', require: false
+  gem 'steep', require: false
 end
 
 gem 'ridgepole' # schema https://github.com/ridgepole/ridgepole
