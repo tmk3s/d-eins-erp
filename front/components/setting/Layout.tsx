@@ -6,10 +6,10 @@ export default function Layout({children}: { children: React.ReactNode }) {
           <div className='bg-gray-200 h-16 font-bold pt-5 pl-3'>共通設定</div>
           <ul className='bg-white'>
             <li className='h-10 border-b-2 pt-2 pl-3 hover:bg-gray-100'>
-              <a className='w-full h-full top-0 bottom-0 block' href="#">会社情報設定</a>
+              <a className='w-full h-full top-0 bottom-0 block' href="/setting">会社情報設定</a>
             </li>
             <li className='h-10 border-b-2 pt-2 pl-3 hover:bg-gray-100'>
-              <a className='w-full h-full top-0 bottom-0 block' href="#">事業所設定</a>
+              <a className='w-full h-full top-0 bottom-0 block' href="/setting/offices">事業所設定</a>
             </li>
             <li className='h-10 border-b-2 pt-2 pl-3 hover:bg-gray-100'>
               <a className='w-full h-full top-0 bottom-0 block' href="#">給与情報設定</a>

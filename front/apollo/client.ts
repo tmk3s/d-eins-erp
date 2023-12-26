@@ -26,7 +26,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const httpLink = createHttpLink({
-  uri: 'graphql',
+  uri: 'http://localhost:8080/graphql',
 });
 
 // https://zenn.dev/konboi/articles/89263019f68781
@@ -41,7 +41,6 @@ const logoutLink = onError(({  graphQLErrors, networkError, operation, forward }
 
 // https://www.apollographql.com/docs/react/networking/advanced-http-networking/
 export const client = new ApolloClient({
-  uri: "/graphql",
   cache: new InMemoryCache(),
   link: from([authLink, logoutLink, httpLink]), // 順番大事
 });

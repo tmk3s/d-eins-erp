@@ -63,5 +63,10 @@ module Types
     def post_code(post_code:)
       PostCode.find_by(post_code)
     end
+
+    field :offices, [OfficeType], null: false
+    def offices
+      Office.where(company_id: current_user.company_id)
+    end
   end
 end

@@ -165,7 +165,7 @@ const Edit = ({company, prefectures, callBack}: {company: Company, prefectures: 
   )
 }
 
-export default function Home() {
+export default () => {
   useEffect(()=>{
 	  console.log(1)
   },[])
