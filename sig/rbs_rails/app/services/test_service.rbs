@@ -1,0 +1,3 @@
+class TestService
+  def ggg: (untyped i, untyped j) -> "567"
+end

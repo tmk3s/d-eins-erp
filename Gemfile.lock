@@ -108,6 +108,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.5.0)
     diffy (3.4.2)
     drb (2.2.0)
       ruby2_keywords
@@ -241,15 +242,32 @@ GEM
       nokogiri
       roo (>= 2.0.0, < 3)
       spreadsheet (> 0.9.0)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.1.0)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
     ruby-ole (1.2.12.2)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     securerandom (0.3.1)
     spreadsheet (1.3.0)
       ruby-ole
-    steep (1.6.0)
+    steep (1.4.0)
       activesupport (>= 5.1)
-      concurrent-ruby (>= 1.1.10)
+      concurrent-ruby (>= 1.2.2)
       csv (>= 3.0.9)
       fileutils (>= 1.1.0)
       json (>= 2.1.0)
@@ -258,7 +276,7 @@ GEM
       logger (>= 1.3.0)
       parser (>= 3.1)
       rainbow (>= 2.2.2, < 4.0)
-      rbs (>= 3.1.0)
+      rbs (>= 2.8.0)
       securerandom (>= 0.1)
       strscan (>= 1.0.0)
       terminal-table (>= 2, < 4)
@@ -268,6 +286,8 @@ GEM
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.3.0)
     timeout (0.4.1)
+    typeprof (0.21.9)
+      rbs (>= 1.8.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
@@ -289,8 +309,8 @@ DEPENDENCIES
   devise_token_auth!
   graphql
   mysql2 (~> 0.5)
-  orthoses
-  orthoses-rails
+  orthoses (~> 1.13.0)
+  orthoses-rails (~> 1.4.0)
   pry-rails
   puma (>= 5.0)
   rack-cors
@@ -299,7 +319,9 @@ DEPENDENCIES
   ridgepole
   roo (~> 2.10.0)
   roo-xls
+  rspec-rails
   steep
+  typeprof
   tzinfo-data
 
 RUBY VERSION

@@ -1,0 +1,420 @@
+class PostCode < ::ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[PostCode, ActiveRecord_Relation, Integer]
+
+  module GeneratedAttributeMethods
+    def id: () -> Integer
+
+    def id=: (Integer) -> Integer
+
+    def id?: () -> bool
+
+    def id_changed?: () -> bool
+
+    def id_change: () -> [ Integer?, Integer? ]
+
+    def id_will_change!: () -> void
+
+    def id_was: () -> Integer?
+
+    def id_previously_changed?: () -> bool
+
+    def id_previous_change: () -> Array[Integer?]?
+
+    def id_previously_was: () -> Integer?
+
+    def id_before_last_save: () -> Integer?
+
+    def id_change_to_be_saved: () -> Array[Integer?]?
+
+    def id_in_database: () -> Integer?
+
+    def saved_change_to_id: () -> Array[Integer?]?
+
+    def saved_change_to_id?: () -> bool
+
+    def will_save_change_to_id?: () -> bool
+
+    def restore_id!: () -> void
+
+    def clear_id_change: () -> void
+
+    def code: () -> String?
+
+    def code=: (String?) -> String?
+
+    def code?: () -> bool
+
+    def code_changed?: () -> bool
+
+    def code_change: () -> [ String?, String? ]
+
+    def code_will_change!: () -> void
+
+    def code_was: () -> String?
+
+    def code_previously_changed?: () -> bool
+
+    def code_previous_change: () -> Array[String?]?
+
+    def code_previously_was: () -> String?
+
+    def code_before_last_save: () -> String?
+
+    def code_change_to_be_saved: () -> Array[String?]?
+
+    def code_in_database: () -> String?
+
+    def saved_change_to_code: () -> Array[String?]?
+
+    def saved_change_to_code?: () -> bool
+
+    def will_save_change_to_code?: () -> bool
+
+    def restore_code!: () -> void
+
+    def clear_code_change: () -> void
+
+    def post_code: () -> String?
+
+    def post_code=: (String?) -> String?
+
+    def post_code?: () -> bool
+
+    def post_code_changed?: () -> bool
+
+    def post_code_change: () -> [ String?, String? ]
+
+    def post_code_will_change!: () -> void
+
+    def post_code_was: () -> String?
+
+    def post_code_previously_changed?: () -> bool
+
+    def post_code_previous_change: () -> Array[String?]?
+
+    def post_code_previously_was: () -> String?
+
+    def post_code_before_last_save: () -> String?
+
+    def post_code_change_to_be_saved: () -> Array[String?]?
+
+    def post_code_in_database: () -> String?
+
+    def saved_change_to_post_code: () -> Array[String?]?
+
+    def saved_change_to_post_code?: () -> bool
+
+    def will_save_change_to_post_code?: () -> bool
+
+    def restore_post_code!: () -> void
+
+    def clear_post_code_change: () -> void
+
+    def prefecture_name: () -> String?
+
+    def prefecture_name=: (String?) -> String?
+
+    def prefecture_name?: () -> bool
+
+    def prefecture_name_changed?: () -> bool
+
+    def prefecture_name_change: () -> [ String?, String? ]
+
+    def prefecture_name_will_change!: () -> void
+
+    def prefecture_name_was: () -> String?
+
+    def prefecture_name_previously_changed?: () -> bool
+
+    def prefecture_name_previous_change: () -> Array[String?]?
+
+    def prefecture_name_previously_was: () -> String?
+
+    def prefecture_name_before_last_save: () -> String?
+
+    def prefecture_name_change_to_be_saved: () -> Array[String?]?
+
+    def prefecture_name_in_database: () -> String?
+
+    def saved_change_to_prefecture_name: () -> Array[String?]?
+
+    def saved_change_to_prefecture_name?: () -> bool
+
+    def will_save_change_to_prefecture_name?: () -> bool
+
+    def restore_prefecture_name!: () -> void
+
+    def clear_prefecture_name_change: () -> void
+
+    def city_name: () -> String?
+
+    def city_name=: (String?) -> String?
+
+    def city_name?: () -> bool
+
+    def city_name_changed?: () -> bool
+
+    def city_name_change: () -> [ String?, String? ]
+
+    def city_name_will_change!: () -> void
+
+    def city_name_was: () -> String?
+
+    def city_name_previously_changed?: () -> bool
+
+    def city_name_previous_change: () -> Array[String?]?
+
+    def city_name_previously_was: () -> String?
+
+    def city_name_before_last_save: () -> String?
+
+    def city_name_change_to_be_saved: () -> Array[String?]?
+
+    def city_name_in_database: () -> String?
+
+    def saved_change_to_city_name: () -> Array[String?]?
+
+    def saved_change_to_city_name?: () -> bool
+
+    def will_save_change_to_city_name?: () -> bool
+
+    def restore_city_name!: () -> void
+
+    def clear_city_name_change: () -> void
+
+    def town_area_name: () -> String?
+
+    def town_area_name=: (String?) -> String?
+
+    def town_area_name?: () -> bool
+
+    def town_area_name_changed?: () -> bool
+
+    def town_area_name_change: () -> [ String?, String? ]
+
+    def town_area_name_will_change!: () -> void
+
+    def town_area_name_was: () -> String?
+
+    def town_area_name_previously_changed?: () -> bool
+
+    def town_area_name_previous_change: () -> Array[String?]?
+
+    def town_area_name_previously_was: () -> String?
+
+    def town_area_name_before_last_save: () -> String?
+
+    def town_area_name_change_to_be_saved: () -> Array[String?]?
+
+    def town_area_name_in_database: () -> String?
+
+    def saved_change_to_town_area_name: () -> Array[String?]?
+
+    def saved_change_to_town_area_name?: () -> bool
+
+    def will_save_change_to_town_area_name?: () -> bool
+
+    def restore_town_area_name!: () -> void
+
+    def clear_town_area_name_change: () -> void
+
+    def prefecture_name_kana: () -> String?
+
+    def prefecture_name_kana=: (String?) -> String?
+
+    def prefecture_name_kana?: () -> bool
+
+    def prefecture_name_kana_changed?: () -> bool
+
+    def prefecture_name_kana_change: () -> [ String?, String? ]
+
+    def prefecture_name_kana_will_change!: () -> void
+
+    def prefecture_name_kana_was: () -> String?
+
+    def prefecture_name_kana_previously_changed?: () -> bool
+
+    def prefecture_name_kana_previous_change: () -> Array[String?]?
+
+    def prefecture_name_kana_previously_was: () -> String?
+
+    def prefecture_name_kana_before_last_save: () -> String?
+
+    def prefecture_name_kana_change_to_be_saved: () -> Array[String?]?
+
+    def prefecture_name_kana_in_database: () -> String?
+
+    def saved_change_to_prefecture_name_kana: () -> Array[String?]?
+
+    def saved_change_to_prefecture_name_kana?: () -> bool
+
+    def will_save_change_to_prefecture_name_kana?: () -> bool
+
+    def restore_prefecture_name_kana!: () -> void
+
+    def clear_prefecture_name_kana_change: () -> void
+
+    def city_name_kana: () -> String?
+
+    def city_name_kana=: (String?) -> String?
+
+    def city_name_kana?: () -> bool
+
+    def city_name_kana_changed?: () -> bool
+
+    def city_name_kana_change: () -> [ String?, String? ]
+
+    def city_name_kana_will_change!: () -> void
+
+    def city_name_kana_was: () -> String?
+
+    def city_name_kana_previously_changed?: () -> bool
+
+    def city_name_kana_previous_change: () -> Array[String?]?
+
+    def city_name_kana_previously_was: () -> String?
+
+    def city_name_kana_before_last_save: () -> String?
+
+    def city_name_kana_change_to_be_saved: () -> Array[String?]?
+
+    def city_name_kana_in_database: () -> String?
+
+    def saved_change_to_city_name_kana: () -> Array[String?]?
+
+    def saved_change_to_city_name_kana?: () -> bool
+
+    def will_save_change_to_city_name_kana?: () -> bool
+
+    def restore_city_name_kana!: () -> void
+
+    def clear_city_name_kana_change: () -> void
+
+    def town_area_name_kana: () -> String?
+
+    def town_area_name_kana=: (String?) -> String?
+
+    def town_area_name_kana?: () -> bool
+
+    def town_area_name_kana_changed?: () -> bool
+
+    def town_area_name_kana_change: () -> [ String?, String? ]
+
+    def town_area_name_kana_will_change!: () -> void
+
+    def town_area_name_kana_was: () -> String?
+
+    def town_area_name_kana_previously_changed?: () -> bool
+
+    def town_area_name_kana_previous_change: () -> Array[String?]?
+
+    def town_area_name_kana_previously_was: () -> String?
+
+    def town_area_name_kana_before_last_save: () -> String?
+
+    def town_area_name_kana_change_to_be_saved: () -> Array[String?]?
+
+    def town_area_name_kana_in_database: () -> String?
+
+    def saved_change_to_town_area_name_kana: () -> Array[String?]?
+
+    def saved_change_to_town_area_name_kana?: () -> bool
+
+    def will_save_change_to_town_area_name_kana?: () -> bool
+
+    def restore_town_area_name_kana!: () -> void
+
+    def clear_town_area_name_kana_change: () -> void
+
+    def created_at: () -> ActiveSupport::TimeWithZone
+
+    def created_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def created_at?: () -> bool
+
+    def created_at_changed?: () -> bool
+
+    def created_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def created_at_will_change!: () -> void
+
+    def created_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_previously_changed?: () -> bool
+
+    def created_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_created_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_created_at?: () -> bool
+
+    def will_save_change_to_created_at?: () -> bool
+
+    def restore_created_at!: () -> void
+
+    def clear_created_at_change: () -> void
+
+    def updated_at: () -> ActiveSupport::TimeWithZone
+
+    def updated_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def updated_at?: () -> bool
+
+    def updated_at_changed?: () -> bool
+
+    def updated_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def updated_at_will_change!: () -> void
+
+    def updated_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_previously_changed?: () -> bool
+
+    def updated_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_updated_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_updated_at?: () -> bool
+
+    def will_save_change_to_updated_at?: () -> bool
+
+    def restore_updated_at!: () -> void
+
+    def clear_updated_at_change: () -> void
+  end
+  include GeneratedAttributeMethods
+
+  module GeneratedAssociationMethods
+  end
+  include GeneratedAssociationMethods
+
+  module GeneratedRelationMethods
+  end
+
+  class ActiveRecord_Relation < ::ActiveRecord::Relation
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[PostCode, Integer]
+    include Enumerable[PostCode]
+  end
+
+  class ActiveRecord_Associations_CollectionProxy < ::ActiveRecord::Associations::CollectionProxy
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[PostCode, Integer]
+  end
+end

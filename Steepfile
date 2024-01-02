@@ -1,16 +1,16 @@
 # D = Steep::Diagnostic
 #
 # target :lib do
-#   signature "sig"
-#
-#   check "lib"                       # Directory name
-#   check "Gemfile"                   # File name
-#   check "app/models/**/*.rb"        # Glob
+#   signature "sig/orthoses"
+
+#   # check "lib"                       # Directory name
+#   # check "Gemfile"                   # File name
+#   # check "app/models/**/*.rb"        # Glob
 #   # ignore "lib/templates/*.rb"
-#
+
 #   # library "pathname"              # Standard libraries
 #   # library "strong_json"           # Gems
-#
+
 #   # configure_code_diagnostics(D::Ruby.default)      # `default` diagnostics setting (applies by default)
 #   # configure_code_diagnostics(D::Ruby.strict)       # `strict` diagnostics setting
 #   # configure_code_diagnostics(D::Ruby.lenient)      # `lenient` diagnostics setting
@@ -26,4 +26,15 @@
 #   check "test"
 #
 #   # library "pathname"              # Standard libraries
+# end
+
+target :app do
+  signature 'sig/rbs_rails'
+  check 'app/models/*.rb'
+  check 'app/services/*.rb'
+end
+
+# target :app do
+#   signature 'sig/out'
+#   check 'app/models/employee.rb'
 # end

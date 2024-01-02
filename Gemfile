@@ -38,15 +38,18 @@ gem "rack-cors"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+
+  gem 'rspec-rails'
+  gem 'rbs_rails', require: false
+  gem 'orthoses', "~> 1.13.0", require: false
+  gem 'orthoses-rails', "~> 1.4.0", require: false
+  gem 'steep', require: false
+  gem "typeprof", require: false
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'rbs_rails', require: false
-  gem 'orthoses', require: false
-  gem 'orthoses-rails', require: false
-  gem 'steep', require: false
 end
 
 gem 'ridgepole' # schema https://github.com/ridgepole/ridgepole

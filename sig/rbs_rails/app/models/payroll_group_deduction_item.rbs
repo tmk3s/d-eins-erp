@@ -1,0 +1,294 @@
+class PayrollGroupDeductionItem < ::ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[PayrollGroupDeductionItem, ActiveRecord_Relation, Integer]
+
+  module GeneratedAttributeMethods
+    def id: () -> Integer
+
+    def id=: (Integer) -> Integer
+
+    def id?: () -> bool
+
+    def id_changed?: () -> bool
+
+    def id_change: () -> [ Integer?, Integer? ]
+
+    def id_will_change!: () -> void
+
+    def id_was: () -> Integer?
+
+    def id_previously_changed?: () -> bool
+
+    def id_previous_change: () -> Array[Integer?]?
+
+    def id_previously_was: () -> Integer?
+
+    def id_before_last_save: () -> Integer?
+
+    def id_change_to_be_saved: () -> Array[Integer?]?
+
+    def id_in_database: () -> Integer?
+
+    def saved_change_to_id: () -> Array[Integer?]?
+
+    def saved_change_to_id?: () -> bool
+
+    def will_save_change_to_id?: () -> bool
+
+    def restore_id!: () -> void
+
+    def clear_id_change: () -> void
+
+    def company_id: () -> Integer
+
+    def company_id=: (Integer) -> Integer
+
+    def company_id?: () -> bool
+
+    def company_id_changed?: () -> bool
+
+    def company_id_change: () -> [ Integer?, Integer? ]
+
+    def company_id_will_change!: () -> void
+
+    def company_id_was: () -> Integer?
+
+    def company_id_previously_changed?: () -> bool
+
+    def company_id_previous_change: () -> Array[Integer?]?
+
+    def company_id_previously_was: () -> Integer?
+
+    def company_id_before_last_save: () -> Integer?
+
+    def company_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def company_id_in_database: () -> Integer?
+
+    def saved_change_to_company_id: () -> Array[Integer?]?
+
+    def saved_change_to_company_id?: () -> bool
+
+    def will_save_change_to_company_id?: () -> bool
+
+    def restore_company_id!: () -> void
+
+    def clear_company_id_change: () -> void
+
+    def payroll_group_id: () -> Integer
+
+    def payroll_group_id=: (Integer) -> Integer
+
+    def payroll_group_id?: () -> bool
+
+    def payroll_group_id_changed?: () -> bool
+
+    def payroll_group_id_change: () -> [ Integer?, Integer? ]
+
+    def payroll_group_id_will_change!: () -> void
+
+    def payroll_group_id_was: () -> Integer?
+
+    def payroll_group_id_previously_changed?: () -> bool
+
+    def payroll_group_id_previous_change: () -> Array[Integer?]?
+
+    def payroll_group_id_previously_was: () -> Integer?
+
+    def payroll_group_id_before_last_save: () -> Integer?
+
+    def payroll_group_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def payroll_group_id_in_database: () -> Integer?
+
+    def saved_change_to_payroll_group_id: () -> Array[Integer?]?
+
+    def saved_change_to_payroll_group_id?: () -> bool
+
+    def will_save_change_to_payroll_group_id?: () -> bool
+
+    def restore_payroll_group_id!: () -> void
+
+    def clear_payroll_group_id_change: () -> void
+
+    def row_no: () -> Integer
+
+    def row_no=: (Integer) -> Integer
+
+    def row_no?: () -> bool
+
+    def row_no_changed?: () -> bool
+
+    def row_no_change: () -> [ Integer?, Integer? ]
+
+    def row_no_will_change!: () -> void
+
+    def row_no_was: () -> Integer?
+
+    def row_no_previously_changed?: () -> bool
+
+    def row_no_previous_change: () -> Array[Integer?]?
+
+    def row_no_previously_was: () -> Integer?
+
+    def row_no_before_last_save: () -> Integer?
+
+    def row_no_change_to_be_saved: () -> Array[Integer?]?
+
+    def row_no_in_database: () -> Integer?
+
+    def saved_change_to_row_no: () -> Array[Integer?]?
+
+    def saved_change_to_row_no?: () -> bool
+
+    def will_save_change_to_row_no?: () -> bool
+
+    def restore_row_no!: () -> void
+
+    def clear_row_no_change: () -> void
+
+    def deduction_item_id: () -> Integer
+
+    def deduction_item_id=: (Integer) -> Integer
+
+    def deduction_item_id?: () -> bool
+
+    def deduction_item_id_changed?: () -> bool
+
+    def deduction_item_id_change: () -> [ Integer?, Integer? ]
+
+    def deduction_item_id_will_change!: () -> void
+
+    def deduction_item_id_was: () -> Integer?
+
+    def deduction_item_id_previously_changed?: () -> bool
+
+    def deduction_item_id_previous_change: () -> Array[Integer?]?
+
+    def deduction_item_id_previously_was: () -> Integer?
+
+    def deduction_item_id_before_last_save: () -> Integer?
+
+    def deduction_item_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def deduction_item_id_in_database: () -> Integer?
+
+    def saved_change_to_deduction_item_id: () -> Array[Integer?]?
+
+    def saved_change_to_deduction_item_id?: () -> bool
+
+    def will_save_change_to_deduction_item_id?: () -> bool
+
+    def restore_deduction_item_id!: () -> void
+
+    def clear_deduction_item_id_change: () -> void
+
+    def created_at: () -> ActiveSupport::TimeWithZone
+
+    def created_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def created_at?: () -> bool
+
+    def created_at_changed?: () -> bool
+
+    def created_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def created_at_will_change!: () -> void
+
+    def created_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_previously_changed?: () -> bool
+
+    def created_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_created_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_created_at?: () -> bool
+
+    def will_save_change_to_created_at?: () -> bool
+
+    def restore_created_at!: () -> void
+
+    def clear_created_at_change: () -> void
+
+    def updated_at: () -> ActiveSupport::TimeWithZone
+
+    def updated_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def updated_at?: () -> bool
+
+    def updated_at_changed?: () -> bool
+
+    def updated_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def updated_at_will_change!: () -> void
+
+    def updated_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_previously_changed?: () -> bool
+
+    def updated_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_updated_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_updated_at?: () -> bool
+
+    def will_save_change_to_updated_at?: () -> bool
+
+    def restore_updated_at!: () -> void
+
+    def clear_updated_at_change: () -> void
+  end
+  include GeneratedAttributeMethods
+
+  def company: () -> Company
+  def company=: (Company?) -> Company?
+  def reload_company: () -> Company?
+  def build_company: (untyped) -> Company
+  def create_company: (untyped) -> Company
+  def create_company!: (untyped) -> Company
+  def payroll_group: () -> PayrollGroup
+  def payroll_group=: (PayrollGroup?) -> PayrollGroup?
+  def reload_payroll_group: () -> PayrollGroup?
+  def build_payroll_group: (untyped) -> PayrollGroup
+  def create_payroll_group: (untyped) -> PayrollGroup
+  def create_payroll_group!: (untyped) -> PayrollGroup
+  def deduction_item: () -> DeductionItem
+  def deduction_item=: (DeductionItem?) -> DeductionItem?
+  def reload_deduction_item: () -> DeductionItem?
+  def build_deduction_item: (untyped) -> DeductionItem
+  def create_deduction_item: (untyped) -> DeductionItem
+  def create_deduction_item!: (untyped) -> DeductionItem
+  module GeneratedAssociationMethods
+  end
+  include GeneratedAssociationMethods
+
+  module GeneratedRelationMethods
+  end
+
+  class ActiveRecord_Relation < ::ActiveRecord::Relation
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[PayrollGroupDeductionItem, Integer]
+    include Enumerable[PayrollGroupDeductionItem]
+  end
+
+  class ActiveRecord_Associations_CollectionProxy < ::ActiveRecord::Associations::CollectionProxy
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[PayrollGroupDeductionItem, Integer]
+  end
+end

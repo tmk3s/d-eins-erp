@@ -1,5 +1,5 @@
 module Types
-  class DeductionItemType < Types::BaseObject
+  class PaymentItemType < Types::BaseObject
     description "支給項目マスタ"
     field :id, ID, null: false
     field :company_id, ID, null: false, description: '会社ID'
