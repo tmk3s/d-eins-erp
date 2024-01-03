@@ -1,0 +1,2 @@
+class EmployeeSalaryAttendanceItem < ::ApplicationRecord
+end

@@ -14,11 +14,11 @@ class Employee < ApplicationRecord
   validates :code, uniqueness: { scope: :company_id }
 
   def aaa()
-    employee_bank_ids
-    a = 1
-    a + 1
-    [].push(1)
-    [].to_a
-    '4'
+    [].blank?
+    'true'
+  end
+
+  def bbb(l)
+    true
   end
 end

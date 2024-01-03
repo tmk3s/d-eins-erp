@@ -1,0 +1,2 @@
+class PayrollGroupDeductionItem < ::ApplicationRecord
+end

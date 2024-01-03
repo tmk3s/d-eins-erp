@@ -44,7 +44,7 @@ group :development, :test do
   gem 'orthoses', "~> 1.13.0", require: false
   gem 'orthoses-rails', "~> 1.4.0", require: false
   gem 'steep', require: false
-  gem "typeprof", require: false
+  # gem "typeprof", require: false
 end
 
 group :development do
@@ -59,4 +59,4 @@ gem 'pry-rails', group: :development
 gem 'activerecord-import' # インポート
 gem 'roo', "~> 2.10.0" # excel読み込み
 gem 'roo-xls' # rooで使用するので必要
-gem 'devise_token_auth', :git => 'https://github.com/single-stop-tony/devise_token_auth' # トークン認証
+gem 'devise_token_auth', :git => 'https://github.com/single-stop-tony/devise_token_auth' # トークン認証(https://github.com/lynndylanhurley/devise_token_auth/issues/1608#issuecomment-1783928862)

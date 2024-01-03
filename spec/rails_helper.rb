@@ -63,3 +63,40 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+require 'orthoses'
+require 'orthoses/rails'
+
+# model様
+Orthoses::Builder.new do
+  use Orthoses::CreateFileByName, to: Rails.root.join('sig/out/models'), rmtree: false
+  use Orthoses::Filter do |name, _content|
+    path, _lineno = Object.const_source_location(name)
+    return false unless path
+    %r{app/models}.match?(path)
+  end
+  use Orthoses::LoadRBS, paths: Dir.glob(Rails.root.join('sig', 'out', '**', '*.rbs').to_s)
+  use Orthoses::RBSPrototypeRB, paths: Dir.glob(Rails.root.join('app', 'models', '**', '*.rb').to_s)
+  use Orthoses::Constant, strict: false
+  use Orthoses::Autoload
+  run -> {
+    Rails.application.eager_load!
+  }
+end.call
+
+# service用
+Orthoses::Builder.new do
+  use Orthoses::CreateFileByName, to: Rails.root.join('sig/out/services'), rmtree: false
+  use Orthoses::Filter do |name, _content|
+    path, _lineno = Object.const_source_location(name)
+    return false unless path
+    %r{app/services}.match?(path)
+  end
+  use Orthoses::LoadRBS, paths: Dir.glob(Rails.root.join('sig', 'out', '**', '*.rbs').to_s)
+  use Orthoses::RBSPrototypeRB, paths: Dir.glob(Rails.root.join('app', 'services', '**', '*.rb').to_s)
+  use Orthoses::Constant, strict: false
+  use Orthoses::Autoload
+  run -> {
+    Rails.application.eager_load!
+  }
+end.call

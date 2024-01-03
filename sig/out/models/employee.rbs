@@ -1,0 +1,4 @@
+class Employee < ::ApplicationRecord
+  def aaa: () -> true
+  def bbb: (untyped l) -> true
+end

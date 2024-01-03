@@ -28,13 +28,15 @@
 #   # library "pathname"              # Standard libraries
 # end
 
+# 動く
+# target :app do
+#   signature 'sig/rbs_rails'
+#   check 'app/models/*.rb'
+#   check 'app/services/*.rb'
+# end
+
 target :app do
-  signature 'sig/rbs_rails'
+  signature 'sig'
   check 'app/models/*.rb'
   check 'app/services/*.rb'
 end
-
-# target :app do
-#   signature 'sig/out'
-#   check 'app/models/employee.rb'
-# end
