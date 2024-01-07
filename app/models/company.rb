@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   belongs_to :prefecture
+  has_many :offices
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :post_code1, presence: true, length: { is: 3 }

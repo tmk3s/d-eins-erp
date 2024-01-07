@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { useForm, SubmitHandler } from "react-hook-form";
 import Layout from '@/components/setting/Layout';
+import type { Office } from '@/types/office';
 import Text from '@/components/common/Text';
 import Input from '@/components/common/Input';
 import ApiError from '@/components/common/ApiError';
@@ -28,32 +29,49 @@ const GET_OFFICES = gql`
   }
 `;
 
-const UPDATE_COMPANY = gql`
-  # Increments a back-end counter and gets its resulting value
-  mutation updateComapny($UpdateCompanyInput: UpdateCompanyInput!){
-  updateComapny(input: $UpdateCompanyInput) {
-    errors
+// tailwindは{`grid grid-cols-&{header.length}`}みたいな書き方はできないので文字列を生成する
+const gridCols = (length: Number): String => {
+  switch (length) {
+    case 3:
+      return 'grid-cols-3';
+    default:
+      return '';
   }
 }
-`;
 
-type Office = {
-  id: string,
-  name: string,
-  postCode1: string,
-  postCode2: string,
-  prefectureId: string,
-  prefectureName: string,
-  address: string,
-  building: string,
-  createdAt: string,
-  updatedAt: string
-};
-
-type Prefacture = {
-  id: string,
-  name: string
-};
+const List = ({header, offices}: {header: Array<String>, offices: Array<Office>}): React.ReactNode => {
+  return(
+    <>
+      <div className={`grid ${gridCols(header.length)} bg-gray-200 h-16 font-bold pt-5 pl-3`}>
+        {   
+          header.map((name: String) => {
+            return (
+              <div>{name}</div>
+            )
+          })
+        }
+      </div>
+      {
+        offices.map((office: Office) => {
+          return (
+            <a className={`grid ${gridCols(header.length)} border bg-white hover:bg-gray-100`}
+              href={`/setting/offices/${office.id}`}
+              // onClick={
+              //   () => {
+              //     alert(1)
+              //   }
+              // }
+              >
+              <span className='p-4 pl-8 pt-3 pb-3 text-left'>{office.name}</span>
+              <span className='p-4 pl-8 pt-3 pb-3 text-left'>{office.createdAt}</span>
+              <span className='p-4 pl-8 pt-3 pb-3 text-left'>{office.updatedAt}</span>
+            </a>
+          )
+        })
+      }
+    </>
+  )
+}
 
 export default () => {
   useEffect(()=>{
@@ -61,7 +79,7 @@ export default () => {
   },[])
   const [edit, setEdit] = useState(false);
   const { loading, error, refetch, data } = useQuery(GET_OFFICES,  { fetchPolicy: 'no-cache' });
-  console.log(data)
+  const header: Array<String> = ['事業所名', '作成日', '更新日']
   return (
     <main>
       <Layout>
@@ -71,30 +89,7 @@ export default () => {
           { loading || !data ? (
               <p>読み込み中です・・</p>
             ) : (
-              <>
-                <table className="border-collapse table-auto w-full text-sm mt-5">
-                  <thead>
-                    <tr className='bg-neutral-300 border '>
-                      <th className='font-bold p-4 pl-8 pt-3 pb-3 text-left'>事業所名</th>
-                      <th className='font-bold p-4 pl-8 pt-3 pb-3 text-left'>作成日</th>
-                      <th className='font-bold p-4 pl-8 pt-3 pb-3 text-left'>更新日</th>
-                    </tr>
-                  </thead>
-                  <tbody className='class="bg-white dark:bg-slate-800"'>
-                    {
-                      data.offices.map((office: Office) => {
-                        return (
-                          <tr className='border bg-white hover:bg-gray-100'>
-                            <td className='p-4 pl-8 pt-3 pb-3 text-left'>{office.name}</td>
-                            <td className='p-4 pl-8 pt-3 pb-3 text-left'>{office.createdAt}</td>
-                            <td className='p-4 pl-8 pt-3 pb-3 text-left'>{office.updatedAt}</td>
-                          </tr>
-                        )
-                      })
-                    }
-                  </tbody>
-                </table>
-              </>
+              <List header={header} offices={data.offices}/>
             )
           }
         </>

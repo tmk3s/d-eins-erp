@@ -68,5 +68,12 @@ module Types
     def offices
       Office.where(company_id: current_user.company_id)
     end
+
+    field :office, OfficeType, "Find a office by ID" do
+      argument :id, ID
+    end
+    def office(id:)
+      Office.find(id)
+    end
   end
 end

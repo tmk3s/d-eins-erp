@@ -10,5 +10,6 @@ module Types
     # end
 
     field :update_comapny, mutation: Mutations::UpdateCompany
+    field :update_office, mutation: Mutations::UpdateOffice
   end
 end
