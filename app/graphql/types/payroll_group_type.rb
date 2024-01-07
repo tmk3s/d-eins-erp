@@ -1,5 +1,5 @@
 module Types
-  class PayrollGroupPaymentItemType < Types::BaseObject
+  class PayrollGroupType < Types::BaseObject
     description "給与グループの支給項目"
     field :id, ID, null: false
     field :company_id, ID, null: false, description: '会社ID'

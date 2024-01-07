@@ -1,0 +1,2 @@
+class PaymentItem < ::ApplicationRecord
+end

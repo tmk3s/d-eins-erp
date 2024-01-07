@@ -1,0 +1,2 @@
+class DeductionItem < ::ApplicationRecord
+end

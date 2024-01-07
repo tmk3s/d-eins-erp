@@ -1,0 +1,2 @@
+class EmployeeQualification < ::ApplicationRecord
+end

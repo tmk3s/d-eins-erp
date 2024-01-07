@@ -1,0 +1,595 @@
+class Employee < ::ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[Employee, ActiveRecord_Relation, Integer]
+
+  module GeneratedAttributeMethods
+    def id: () -> Integer
+
+    def id=: (Integer) -> Integer
+
+    def id?: () -> bool
+
+    def id_changed?: () -> bool
+
+    def id_change: () -> [ Integer?, Integer? ]
+
+    def id_will_change!: () -> void
+
+    def id_was: () -> Integer?
+
+    def id_previously_changed?: () -> bool
+
+    def id_previous_change: () -> Array[Integer?]?
+
+    def id_previously_was: () -> Integer?
+
+    def id_before_last_save: () -> Integer?
+
+    def id_change_to_be_saved: () -> Array[Integer?]?
+
+    def id_in_database: () -> Integer?
+
+    def saved_change_to_id: () -> Array[Integer?]?
+
+    def saved_change_to_id?: () -> bool
+
+    def will_save_change_to_id?: () -> bool
+
+    def restore_id!: () -> void
+
+    def clear_id_change: () -> void
+
+    def company_id: () -> Integer
+
+    def company_id=: (Integer) -> Integer
+
+    def company_id?: () -> bool
+
+    def company_id_changed?: () -> bool
+
+    def company_id_change: () -> [ Integer?, Integer? ]
+
+    def company_id_will_change!: () -> void
+
+    def company_id_was: () -> Integer?
+
+    def company_id_previously_changed?: () -> bool
+
+    def company_id_previous_change: () -> Array[Integer?]?
+
+    def company_id_previously_was: () -> Integer?
+
+    def company_id_before_last_save: () -> Integer?
+
+    def company_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def company_id_in_database: () -> Integer?
+
+    def saved_change_to_company_id: () -> Array[Integer?]?
+
+    def saved_change_to_company_id?: () -> bool
+
+    def will_save_change_to_company_id?: () -> bool
+
+    def restore_company_id!: () -> void
+
+    def clear_company_id_change: () -> void
+
+    def code: () -> String?
+
+    def code=: (String?) -> String?
+
+    def code?: () -> bool
+
+    def code_changed?: () -> bool
+
+    def code_change: () -> [ String?, String? ]
+
+    def code_will_change!: () -> void
+
+    def code_was: () -> String?
+
+    def code_previously_changed?: () -> bool
+
+    def code_previous_change: () -> Array[String?]?
+
+    def code_previously_was: () -> String?
+
+    def code_before_last_save: () -> String?
+
+    def code_change_to_be_saved: () -> Array[String?]?
+
+    def code_in_database: () -> String?
+
+    def saved_change_to_code: () -> Array[String?]?
+
+    def saved_change_to_code?: () -> bool
+
+    def will_save_change_to_code?: () -> bool
+
+    def restore_code!: () -> void
+
+    def clear_code_change: () -> void
+
+    def last_name: () -> String
+
+    def last_name=: (String) -> String
+
+    def last_name?: () -> bool
+
+    def last_name_changed?: () -> bool
+
+    def last_name_change: () -> [ String?, String? ]
+
+    def last_name_will_change!: () -> void
+
+    def last_name_was: () -> String?
+
+    def last_name_previously_changed?: () -> bool
+
+    def last_name_previous_change: () -> Array[String?]?
+
+    def last_name_previously_was: () -> String?
+
+    def last_name_before_last_save: () -> String?
+
+    def last_name_change_to_be_saved: () -> Array[String?]?
+
+    def last_name_in_database: () -> String?
+
+    def saved_change_to_last_name: () -> Array[String?]?
+
+    def saved_change_to_last_name?: () -> bool
+
+    def will_save_change_to_last_name?: () -> bool
+
+    def restore_last_name!: () -> void
+
+    def clear_last_name_change: () -> void
+
+    def first_name: () -> String
+
+    def first_name=: (String) -> String
+
+    def first_name?: () -> bool
+
+    def first_name_changed?: () -> bool
+
+    def first_name_change: () -> [ String?, String? ]
+
+    def first_name_will_change!: () -> void
+
+    def first_name_was: () -> String?
+
+    def first_name_previously_changed?: () -> bool
+
+    def first_name_previous_change: () -> Array[String?]?
+
+    def first_name_previously_was: () -> String?
+
+    def first_name_before_last_save: () -> String?
+
+    def first_name_change_to_be_saved: () -> Array[String?]?
+
+    def first_name_in_database: () -> String?
+
+    def saved_change_to_first_name: () -> Array[String?]?
+
+    def saved_change_to_first_name?: () -> bool
+
+    def will_save_change_to_first_name?: () -> bool
+
+    def restore_first_name!: () -> void
+
+    def clear_first_name_change: () -> void
+
+    def last_name_kana: () -> String?
+
+    def last_name_kana=: (String?) -> String?
+
+    def last_name_kana?: () -> bool
+
+    def last_name_kana_changed?: () -> bool
+
+    def last_name_kana_change: () -> [ String?, String? ]
+
+    def last_name_kana_will_change!: () -> void
+
+    def last_name_kana_was: () -> String?
+
+    def last_name_kana_previously_changed?: () -> bool
+
+    def last_name_kana_previous_change: () -> Array[String?]?
+
+    def last_name_kana_previously_was: () -> String?
+
+    def last_name_kana_before_last_save: () -> String?
+
+    def last_name_kana_change_to_be_saved: () -> Array[String?]?
+
+    def last_name_kana_in_database: () -> String?
+
+    def saved_change_to_last_name_kana: () -> Array[String?]?
+
+    def saved_change_to_last_name_kana?: () -> bool
+
+    def will_save_change_to_last_name_kana?: () -> bool
+
+    def restore_last_name_kana!: () -> void
+
+    def clear_last_name_kana_change: () -> void
+
+    def first_name_kana: () -> String?
+
+    def first_name_kana=: (String?) -> String?
+
+    def first_name_kana?: () -> bool
+
+    def first_name_kana_changed?: () -> bool
+
+    def first_name_kana_change: () -> [ String?, String? ]
+
+    def first_name_kana_will_change!: () -> void
+
+    def first_name_kana_was: () -> String?
+
+    def first_name_kana_previously_changed?: () -> bool
+
+    def first_name_kana_previous_change: () -> Array[String?]?
+
+    def first_name_kana_previously_was: () -> String?
+
+    def first_name_kana_before_last_save: () -> String?
+
+    def first_name_kana_change_to_be_saved: () -> Array[String?]?
+
+    def first_name_kana_in_database: () -> String?
+
+    def saved_change_to_first_name_kana: () -> Array[String?]?
+
+    def saved_change_to_first_name_kana?: () -> bool
+
+    def will_save_change_to_first_name_kana?: () -> bool
+
+    def restore_first_name_kana!: () -> void
+
+    def clear_first_name_kana_change: () -> void
+
+    def gender: () -> Integer?
+
+    def gender=: (Integer?) -> Integer?
+
+    def gender?: () -> bool
+
+    def gender_changed?: () -> bool
+
+    def gender_change: () -> [ Integer?, Integer? ]
+
+    def gender_will_change!: () -> void
+
+    def gender_was: () -> Integer?
+
+    def gender_previously_changed?: () -> bool
+
+    def gender_previous_change: () -> Array[Integer?]?
+
+    def gender_previously_was: () -> Integer?
+
+    def gender_before_last_save: () -> Integer?
+
+    def gender_change_to_be_saved: () -> Array[Integer?]?
+
+    def gender_in_database: () -> Integer?
+
+    def saved_change_to_gender: () -> Array[Integer?]?
+
+    def saved_change_to_gender?: () -> bool
+
+    def will_save_change_to_gender?: () -> bool
+
+    def restore_gender!: () -> void
+
+    def clear_gender_change: () -> void
+
+    def birthday: () -> Date?
+
+    def birthday=: (Date?) -> Date?
+
+    def birthday?: () -> bool
+
+    def birthday_changed?: () -> bool
+
+    def birthday_change: () -> [ Date?, Date? ]
+
+    def birthday_will_change!: () -> void
+
+    def birthday_was: () -> Date?
+
+    def birthday_previously_changed?: () -> bool
+
+    def birthday_previous_change: () -> Array[Date?]?
+
+    def birthday_previously_was: () -> Date?
+
+    def birthday_before_last_save: () -> Date?
+
+    def birthday_change_to_be_saved: () -> Array[Date?]?
+
+    def birthday_in_database: () -> Date?
+
+    def saved_change_to_birthday: () -> Array[Date?]?
+
+    def saved_change_to_birthday?: () -> bool
+
+    def will_save_change_to_birthday?: () -> bool
+
+    def restore_birthday!: () -> void
+
+    def clear_birthday_change: () -> void
+
+    def joined_on: () -> Date
+
+    def joined_on=: (Date) -> Date
+
+    def joined_on?: () -> bool
+
+    def joined_on_changed?: () -> bool
+
+    def joined_on_change: () -> [ Date?, Date? ]
+
+    def joined_on_will_change!: () -> void
+
+    def joined_on_was: () -> Date?
+
+    def joined_on_previously_changed?: () -> bool
+
+    def joined_on_previous_change: () -> Array[Date?]?
+
+    def joined_on_previously_was: () -> Date?
+
+    def joined_on_before_last_save: () -> Date?
+
+    def joined_on_change_to_be_saved: () -> Array[Date?]?
+
+    def joined_on_in_database: () -> Date?
+
+    def saved_change_to_joined_on: () -> Array[Date?]?
+
+    def saved_change_to_joined_on?: () -> bool
+
+    def will_save_change_to_joined_on?: () -> bool
+
+    def restore_joined_on!: () -> void
+
+    def clear_joined_on_change: () -> void
+
+    def retirement_on: () -> Date?
+
+    def retirement_on=: (Date?) -> Date?
+
+    def retirement_on?: () -> bool
+
+    def retirement_on_changed?: () -> bool
+
+    def retirement_on_change: () -> [ Date?, Date? ]
+
+    def retirement_on_will_change!: () -> void
+
+    def retirement_on_was: () -> Date?
+
+    def retirement_on_previously_changed?: () -> bool
+
+    def retirement_on_previous_change: () -> Array[Date?]?
+
+    def retirement_on_previously_was: () -> Date?
+
+    def retirement_on_before_last_save: () -> Date?
+
+    def retirement_on_change_to_be_saved: () -> Array[Date?]?
+
+    def retirement_on_in_database: () -> Date?
+
+    def saved_change_to_retirement_on: () -> Array[Date?]?
+
+    def saved_change_to_retirement_on?: () -> bool
+
+    def will_save_change_to_retirement_on?: () -> bool
+
+    def restore_retirement_on!: () -> void
+
+    def clear_retirement_on_change: () -> void
+
+    def introduction: () -> String?
+
+    def introduction=: (String?) -> String?
+
+    def introduction?: () -> bool
+
+    def introduction_changed?: () -> bool
+
+    def introduction_change: () -> [ String?, String? ]
+
+    def introduction_will_change!: () -> void
+
+    def introduction_was: () -> String?
+
+    def introduction_previously_changed?: () -> bool
+
+    def introduction_previous_change: () -> Array[String?]?
+
+    def introduction_previously_was: () -> String?
+
+    def introduction_before_last_save: () -> String?
+
+    def introduction_change_to_be_saved: () -> Array[String?]?
+
+    def introduction_in_database: () -> String?
+
+    def saved_change_to_introduction: () -> Array[String?]?
+
+    def saved_change_to_introduction?: () -> bool
+
+    def will_save_change_to_introduction?: () -> bool
+
+    def restore_introduction!: () -> void
+
+    def clear_introduction_change: () -> void
+
+    def image: () -> String?
+
+    def image=: (String?) -> String?
+
+    def image?: () -> bool
+
+    def image_changed?: () -> bool
+
+    def image_change: () -> [ String?, String? ]
+
+    def image_will_change!: () -> void
+
+    def image_was: () -> String?
+
+    def image_previously_changed?: () -> bool
+
+    def image_previous_change: () -> Array[String?]?
+
+    def image_previously_was: () -> String?
+
+    def image_before_last_save: () -> String?
+
+    def image_change_to_be_saved: () -> Array[String?]?
+
+    def image_in_database: () -> String?
+
+    def saved_change_to_image: () -> Array[String?]?
+
+    def saved_change_to_image?: () -> bool
+
+    def will_save_change_to_image?: () -> bool
+
+    def restore_image!: () -> void
+
+    def clear_image_change: () -> void
+
+    def created_at: () -> ActiveSupport::TimeWithZone
+
+    def created_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def created_at?: () -> bool
+
+    def created_at_changed?: () -> bool
+
+    def created_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def created_at_will_change!: () -> void
+
+    def created_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_previously_changed?: () -> bool
+
+    def created_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_created_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_created_at?: () -> bool
+
+    def will_save_change_to_created_at?: () -> bool
+
+    def restore_created_at!: () -> void
+
+    def clear_created_at_change: () -> void
+
+    def updated_at: () -> ActiveSupport::TimeWithZone
+
+    def updated_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def updated_at?: () -> bool
+
+    def updated_at_changed?: () -> bool
+
+    def updated_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def updated_at_will_change!: () -> void
+
+    def updated_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_previously_changed?: () -> bool
+
+    def updated_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_updated_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_updated_at?: () -> bool
+
+    def will_save_change_to_updated_at?: () -> bool
+
+    def restore_updated_at!: () -> void
+
+    def clear_updated_at_change: () -> void
+  end
+  include GeneratedAttributeMethods
+  def employee_banks: () -> EmployeeBank::ActiveRecord_Associations_CollectionProxy
+  def employee_banks=: (EmployeeBank::ActiveRecord_Associations_CollectionProxy | Array[EmployeeBank]) -> (EmployeeBank::ActiveRecord_Associations_CollectionProxy | Array[EmployeeBank])
+  def employee_bank_ids: () -> Array[Integer]
+  def employee_bank_ids=: (Array[Integer]) -> Array[Integer]
+  def employee_families: () -> EmployeeFamily::ActiveRecord_Associations_CollectionProxy
+  def employee_families=: (EmployeeFamily::ActiveRecord_Associations_CollectionProxy | Array[EmployeeFamily]) -> (EmployeeFamily::ActiveRecord_Associations_CollectionProxy | Array[EmployeeFamily])
+  def employee_family_ids: () -> Array[Integer]
+  def employee_family_ids=: (Array[Integer]) -> Array[Integer]
+  def employee_payroll_groups: () -> EmployeePayrollGroup::ActiveRecord_Associations_CollectionProxy
+  def employee_payroll_groups=: (EmployeePayrollGroup::ActiveRecord_Associations_CollectionProxy | Array[EmployeePayrollGroup]) -> (EmployeePayrollGroup::ActiveRecord_Associations_CollectionProxy | Array[EmployeePayrollGroup])
+  def employee_payroll_group_ids: () -> Array[Integer]
+  def employee_payroll_group_ids=: (Array[Integer]) -> Array[Integer]
+  def employee_qualifications: () -> EmployeeQualification::ActiveRecord_Associations_CollectionProxy
+  def employee_qualifications=: (EmployeeQualification::ActiveRecord_Associations_CollectionProxy | Array[EmployeeQualification]) -> (EmployeeQualification::ActiveRecord_Associations_CollectionProxy | Array[EmployeeQualification])
+  def employee_qualification_ids: () -> Array[Integer]
+  def employee_qualification_ids=: (Array[Integer]) -> Array[Integer]
+  def employee_salaries: () -> EmployeeSalary::ActiveRecord_Associations_CollectionProxy
+  def employee_salaries=: (EmployeeSalary::ActiveRecord_Associations_CollectionProxy | Array[EmployeeSalary]) -> (EmployeeSalary::ActiveRecord_Associations_CollectionProxy | Array[EmployeeSalary])
+  def employee_salary_ids: () -> Array[Integer]
+  def employee_salary_ids=: (Array[Integer]) -> Array[Integer]
+  def employee_address: () -> EmployeeAddress?
+  def employee_address=: (EmployeeAddress?) -> EmployeeAddress?
+  def build_employee_address: (untyped) -> EmployeeAddress
+  def create_employee_address: (untyped) -> EmployeeAddress
+  def create_employee_address!: (untyped) -> EmployeeAddress
+  def reload_employee_address: () -> EmployeeAddress?
+  def company: () -> Company
+  def company=: (Company?) -> Company?
+  def reload_company: () -> Company?
+  def build_company: (untyped) -> Company
+  def create_company: (untyped) -> Company
+  def create_company!: (untyped) -> Company
+  module GeneratedAssociationMethods
+  end
+  include GeneratedAssociationMethods
+
+  module GeneratedRelationMethods
+  end
+
+  class ActiveRecord_Relation < ::ActiveRecord::Relation
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[Employee, Integer]
+    include Enumerable[Employee]
+  end
+
+  class ActiveRecord_Associations_CollectionProxy < ::ActiveRecord::Associations::CollectionProxy
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[Employee, Integer]
+  end
+end

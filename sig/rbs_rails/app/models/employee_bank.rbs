@@ -1,0 +1,372 @@
+class EmployeeBank < ::ApplicationRecord
+  extend _ActiveRecord_Relation_ClassMethods[EmployeeBank, ActiveRecord_Relation, Integer]
+
+  module GeneratedAttributeMethods
+    def id: () -> Integer
+
+    def id=: (Integer) -> Integer
+
+    def id?: () -> bool
+
+    def id_changed?: () -> bool
+
+    def id_change: () -> [ Integer?, Integer? ]
+
+    def id_will_change!: () -> void
+
+    def id_was: () -> Integer?
+
+    def id_previously_changed?: () -> bool
+
+    def id_previous_change: () -> Array[Integer?]?
+
+    def id_previously_was: () -> Integer?
+
+    def id_before_last_save: () -> Integer?
+
+    def id_change_to_be_saved: () -> Array[Integer?]?
+
+    def id_in_database: () -> Integer?
+
+    def saved_change_to_id: () -> Array[Integer?]?
+
+    def saved_change_to_id?: () -> bool
+
+    def will_save_change_to_id?: () -> bool
+
+    def restore_id!: () -> void
+
+    def clear_id_change: () -> void
+
+    def company_id: () -> Integer
+
+    def company_id=: (Integer) -> Integer
+
+    def company_id?: () -> bool
+
+    def company_id_changed?: () -> bool
+
+    def company_id_change: () -> [ Integer?, Integer? ]
+
+    def company_id_will_change!: () -> void
+
+    def company_id_was: () -> Integer?
+
+    def company_id_previously_changed?: () -> bool
+
+    def company_id_previous_change: () -> Array[Integer?]?
+
+    def company_id_previously_was: () -> Integer?
+
+    def company_id_before_last_save: () -> Integer?
+
+    def company_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def company_id_in_database: () -> Integer?
+
+    def saved_change_to_company_id: () -> Array[Integer?]?
+
+    def saved_change_to_company_id?: () -> bool
+
+    def will_save_change_to_company_id?: () -> bool
+
+    def restore_company_id!: () -> void
+
+    def clear_company_id_change: () -> void
+
+    def employee_id: () -> Integer
+
+    def employee_id=: (Integer) -> Integer
+
+    def employee_id?: () -> bool
+
+    def employee_id_changed?: () -> bool
+
+    def employee_id_change: () -> [ Integer?, Integer? ]
+
+    def employee_id_will_change!: () -> void
+
+    def employee_id_was: () -> Integer?
+
+    def employee_id_previously_changed?: () -> bool
+
+    def employee_id_previous_change: () -> Array[Integer?]?
+
+    def employee_id_previously_was: () -> Integer?
+
+    def employee_id_before_last_save: () -> Integer?
+
+    def employee_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def employee_id_in_database: () -> Integer?
+
+    def saved_change_to_employee_id: () -> Array[Integer?]?
+
+    def saved_change_to_employee_id?: () -> bool
+
+    def will_save_change_to_employee_id?: () -> bool
+
+    def restore_employee_id!: () -> void
+
+    def clear_employee_id_change: () -> void
+
+    def row_no: () -> Integer
+
+    def row_no=: (Integer) -> Integer
+
+    def row_no?: () -> bool
+
+    def row_no_changed?: () -> bool
+
+    def row_no_change: () -> [ Integer?, Integer? ]
+
+    def row_no_will_change!: () -> void
+
+    def row_no_was: () -> Integer?
+
+    def row_no_previously_changed?: () -> bool
+
+    def row_no_previous_change: () -> Array[Integer?]?
+
+    def row_no_previously_was: () -> Integer?
+
+    def row_no_before_last_save: () -> Integer?
+
+    def row_no_change_to_be_saved: () -> Array[Integer?]?
+
+    def row_no_in_database: () -> Integer?
+
+    def saved_change_to_row_no: () -> Array[Integer?]?
+
+    def saved_change_to_row_no?: () -> bool
+
+    def will_save_change_to_row_no?: () -> bool
+
+    def restore_row_no!: () -> void
+
+    def clear_row_no_change: () -> void
+
+    def bank_id: () -> Integer
+
+    def bank_id=: (Integer) -> Integer
+
+    def bank_id?: () -> bool
+
+    def bank_id_changed?: () -> bool
+
+    def bank_id_change: () -> [ Integer?, Integer? ]
+
+    def bank_id_will_change!: () -> void
+
+    def bank_id_was: () -> Integer?
+
+    def bank_id_previously_changed?: () -> bool
+
+    def bank_id_previous_change: () -> Array[Integer?]?
+
+    def bank_id_previously_was: () -> Integer?
+
+    def bank_id_before_last_save: () -> Integer?
+
+    def bank_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def bank_id_in_database: () -> Integer?
+
+    def saved_change_to_bank_id: () -> Array[Integer?]?
+
+    def saved_change_to_bank_id?: () -> bool
+
+    def will_save_change_to_bank_id?: () -> bool
+
+    def restore_bank_id!: () -> void
+
+    def clear_bank_id_change: () -> void
+
+    def bank_branch_id: () -> Integer
+
+    def bank_branch_id=: (Integer) -> Integer
+
+    def bank_branch_id?: () -> bool
+
+    def bank_branch_id_changed?: () -> bool
+
+    def bank_branch_id_change: () -> [ Integer?, Integer? ]
+
+    def bank_branch_id_will_change!: () -> void
+
+    def bank_branch_id_was: () -> Integer?
+
+    def bank_branch_id_previously_changed?: () -> bool
+
+    def bank_branch_id_previous_change: () -> Array[Integer?]?
+
+    def bank_branch_id_previously_was: () -> Integer?
+
+    def bank_branch_id_before_last_save: () -> Integer?
+
+    def bank_branch_id_change_to_be_saved: () -> Array[Integer?]?
+
+    def bank_branch_id_in_database: () -> Integer?
+
+    def saved_change_to_bank_branch_id: () -> Array[Integer?]?
+
+    def saved_change_to_bank_branch_id?: () -> bool
+
+    def will_save_change_to_bank_branch_id?: () -> bool
+
+    def restore_bank_branch_id!: () -> void
+
+    def clear_bank_branch_id_change: () -> void
+
+    def bank_number: () -> String
+
+    def bank_number=: (String) -> String
+
+    def bank_number?: () -> bool
+
+    def bank_number_changed?: () -> bool
+
+    def bank_number_change: () -> [ String?, String? ]
+
+    def bank_number_will_change!: () -> void
+
+    def bank_number_was: () -> String?
+
+    def bank_number_previously_changed?: () -> bool
+
+    def bank_number_previous_change: () -> Array[String?]?
+
+    def bank_number_previously_was: () -> String?
+
+    def bank_number_before_last_save: () -> String?
+
+    def bank_number_change_to_be_saved: () -> Array[String?]?
+
+    def bank_number_in_database: () -> String?
+
+    def saved_change_to_bank_number: () -> Array[String?]?
+
+    def saved_change_to_bank_number?: () -> bool
+
+    def will_save_change_to_bank_number?: () -> bool
+
+    def restore_bank_number!: () -> void
+
+    def clear_bank_number_change: () -> void
+
+    def created_at: () -> ActiveSupport::TimeWithZone
+
+    def created_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def created_at?: () -> bool
+
+    def created_at_changed?: () -> bool
+
+    def created_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def created_at_will_change!: () -> void
+
+    def created_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_previously_changed?: () -> bool
+
+    def created_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def created_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def created_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_created_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_created_at?: () -> bool
+
+    def will_save_change_to_created_at?: () -> bool
+
+    def restore_created_at!: () -> void
+
+    def clear_created_at_change: () -> void
+
+    def updated_at: () -> ActiveSupport::TimeWithZone
+
+    def updated_at=: (ActiveSupport::TimeWithZone) -> ActiveSupport::TimeWithZone
+
+    def updated_at?: () -> bool
+
+    def updated_at_changed?: () -> bool
+
+    def updated_at_change: () -> [ ActiveSupport::TimeWithZone?, ActiveSupport::TimeWithZone? ]
+
+    def updated_at_will_change!: () -> void
+
+    def updated_at_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_previously_changed?: () -> bool
+
+    def updated_at_previous_change: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_previously_was: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_before_last_save: () -> ActiveSupport::TimeWithZone?
+
+    def updated_at_change_to_be_saved: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def updated_at_in_database: () -> ActiveSupport::TimeWithZone?
+
+    def saved_change_to_updated_at: () -> Array[ActiveSupport::TimeWithZone?]?
+
+    def saved_change_to_updated_at?: () -> bool
+
+    def will_save_change_to_updated_at?: () -> bool
+
+    def restore_updated_at!: () -> void
+
+    def clear_updated_at_change: () -> void
+  end
+  include GeneratedAttributeMethods
+
+  def company: () -> Company
+  def company=: (Company?) -> Company?
+  def reload_company: () -> Company?
+  def build_company: (untyped) -> Company
+  def create_company: (untyped) -> Company
+  def create_company!: (untyped) -> Company
+  def employee: () -> Employee
+  def employee=: (Employee?) -> Employee?
+  def reload_employee: () -> Employee?
+  def build_employee: (untyped) -> Employee
+  def create_employee: (untyped) -> Employee
+  def create_employee!: (untyped) -> Employee
+  def bank: () -> Bank
+  def bank=: (Bank?) -> Bank?
+  def reload_bank: () -> Bank?
+  def build_bank: (untyped) -> Bank
+  def create_bank: (untyped) -> Bank
+  def create_bank!: (untyped) -> Bank
+  def bank_branch: () -> BankBranch
+  def bank_branch=: (BankBranch?) -> BankBranch?
+  def reload_bank_branch: () -> BankBranch?
+  def build_bank_branch: (untyped) -> BankBranch
+  def create_bank_branch: (untyped) -> BankBranch
+  def create_bank_branch!: (untyped) -> BankBranch
+  module GeneratedAssociationMethods
+  end
+  include GeneratedAssociationMethods
+
+  module GeneratedRelationMethods
+  end
+
+  class ActiveRecord_Relation < ::ActiveRecord::Relation
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[EmployeeBank, Integer]
+    include Enumerable[EmployeeBank]
+  end
+
+  class ActiveRecord_Associations_CollectionProxy < ::ActiveRecord::Associations::CollectionProxy
+    include GeneratedRelationMethods
+    include _ActiveRecord_Relation[EmployeeBank, Integer]
+  end
+end

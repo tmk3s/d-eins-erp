@@ -37,3 +37,10 @@
 
 # gem_rbs_collection
 /.gem_rbs_collection
+
+Gemfile.local
+Gemfile.local.lock
+
+/rbswiki/*
+
+/vendor/*

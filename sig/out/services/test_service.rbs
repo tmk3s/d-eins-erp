@@ -1,0 +1,3 @@
+class TestService
+  def ggg: (Integer i, Integer j) -> "7"
+end

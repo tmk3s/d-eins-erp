@@ -12,4 +12,13 @@ class Employee < ApplicationRecord
   enum :gender, [:male, :female], prefix: true
 
   validates :code, uniqueness: { scope: :company_id }
+
+  def aaa()
+    [].blank?
+    'true'
+  end
+
+  def bbb(l)
+    true
+  end
 end
